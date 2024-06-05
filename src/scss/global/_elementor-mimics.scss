@@ -1,0 +1,13 @@
+.container-elementor-style {
+    /*
+        ATTENTION
+        =========
+        The max-width, and other declarations, make sure that the
+        HTML sits in a replica of Elementor's container
+
+        An Elementor section has a 10px margin added to it by default.
+        to remove this, you will need to set the columns gap to 'No Gap'
+    */
+    max-width: 1140px;
+    margin: 0 auto;
+}

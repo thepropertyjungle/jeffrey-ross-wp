@@ -1,0 +1,302 @@
+@use "../abstracts/colors" as c;
+@use "../abstracts/fonts" as t;
+
+#search-form--tabbed {
+    .nav-tabs {
+        border: none;
+        .nav-item {
+            .nav-link {
+                min-width: 185px;
+                padding: 1em 0;
+                margin: 0;
+                border: 0;
+                border-radius: 0;
+                background: c.$white;
+                font-size: 15px;
+                font-weight: 700;
+                color: c.$brand--primary;
+                text-transform: uppercase;
+                transition: background 0.3s;
+                letter-spacing: 0.091em;
+                text-align: center;
+
+                &:hover {
+                    background: c.$brand--primary;
+                    color: c.$brand--secondary;
+                }
+
+                &.active {
+                    background: c.$brand--primary;
+                    color: c.$brand--secondary;
+                }
+
+                @media (max-width: 767px) {
+                    min-width: auto;
+                    padding: 1em 0.8em;
+                }
+            }
+
+            .draw-search-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 185px;
+                height: 56.25px;
+                margin: 0;
+                border: 0;
+                border-radius: 0;
+                font-size: 14px;
+                font-weight: 800;
+                text-align: center;
+                text-transform: uppercase;
+                background: rgba(41, 50, 65, 0);
+                color: c.$white;
+                svg {
+                    fill: c.$white;
+                    width: 22px;
+                    height: 20px;
+                    margin-right: 5px;
+                    margin-bottom: 2px;
+                }
+
+                &:hover {
+                    background-color: c.$brand--primary;
+                    color: c.$brand--secondary;
+                    svg {
+                        fill: c.$brand--secondary;
+                    }
+                }
+
+                @media (max-width: 767px) {
+                    min-width: auto;
+                    padding: 1em 0.8em;
+                }
+            }
+        }
+    }
+
+    .tab-content {
+        background-color: c.$brand--primary;
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        @media (max-width: 1024px) {
+            height: auto;
+            padding: 1.5em 1.5em 3.5em;
+        }
+        @media (max-width: 540px) {
+            padding: 1.5em 2.5em 3.5em;
+        }
+
+        .tab-pane {
+            form {
+                .fields-col {
+                    padding: 2.5em 4em;
+                    @media (max-width: 1024px) {
+                        padding: 0;
+                    }
+                }
+                label {
+                    font-family: t.$f-Assistant;
+
+                    color: c.$white;
+                    font-size: 1.6rem;
+                    font-weight: 700;
+                    width: 100%;
+                    margin-bottom: 1.8rem;
+                    display: block;
+                    text-transform: uppercase;
+                    letter-spacing: 0.091em;
+
+                    @media (max-width: 1024px) {
+                        margin-top: 1em;
+                    }
+                }
+                select,
+                input {
+                    box-shadow: none;
+                    outline: 0;
+                }
+                input[type="text"] {
+                    width: 100%;
+                    padding: 0.5em 0 1em 0;
+                    border: 0;
+                    border-bottom: 1px solid c.$brand--secondary;
+                    border-radius: 0px;
+                    background: none;
+                    font-size: 1.6rem;
+                    color: c.$brand--secondary;
+
+                    &::placeholder {
+                        color: c.$brand--secondary;
+                    }
+                }
+                .select-col {
+                    position: relative;
+
+                    svg {
+                        position: absolute;
+                        right: 1.1em;
+                        bottom: 1.3em;
+                        width: 10px;
+                        fill: c.$white;
+                    }
+                }
+                select {
+                    width: 100%;
+                    padding: 0.5em 0 1em 0;
+                    border: 0;
+                    border-radius: 0;
+                    background-image: none;
+                    background-color: transparent;
+                    font-size: 1.6rem;
+                    border-bottom: 1px solid c.$brand--secondary;
+                    color: c.$brand--secondary;
+                    position: relative;
+
+                    option {
+                        color: #333333;
+                    }
+                }
+                button {
+                    font-size: 1.6rem;
+                    width: 100%;
+                    height: 100%;
+                    border: 0;
+                    border-radius: 0;
+                    padding: 0;
+                    background: c.$brand--accent;
+                    color: c.$white;
+
+                    svg {
+                        width: 18px;
+                        fill: c.$white;
+                    }
+                    span {
+                        font-weight: 700;
+                        letter-spacing: 0.091em;
+                        text-transform: uppercase;
+                    }
+
+                    &:hover {
+                        background: c.$brand--primary;
+                    }
+
+                    @media (max-width: 1024px) {
+                        margin-top: 1em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.sort-options {
+    @media (max-width: 920px) {
+        margin-top: 1em;
+    }
+    a {
+        font-family: t.$f-Assistant;
+        font-size: 14px;
+        font-weight: 800;
+        font-style: normal;
+        color: c.$brand--primary !important;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.032em;
+        padding: 0 1.5em;
+
+        @media (max-width: 920px) {
+            padding: 0;
+
+            &:not(:last-child) {
+                padding-right: 1em;
+                margin-right: 1em;
+            }
+        }
+        &:not(:last-child) {
+            border-right: 1px solid rgba(41, 50, 65, 0.4);
+        }
+
+        &.active {
+            opacity: 0.4;
+        }
+    }
+}
+
+.view-btn {
+    font-size: 16px;
+    font-weight: 700;
+    color: c.$brand--primary;
+    text-transform: uppercase;
+
+    &:hover {
+        color: c.$brand--secondary;
+    }
+
+    svg {
+        width: 16px;
+        margin-bottom: 3px;
+        margin-right: 5px;
+        fill: c.$brand--accent;
+    }
+}
+
+.search-hero {
+    background-color: c.$brand--primary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 65vh;
+    @media (max-width: 991px) {
+        height: 60vh;
+    }
+    @media (max-width: 767px) {
+        justify-content: start !important;
+    }
+
+    .property-hero-logo {
+        margin-top: 20px;
+        img.custom-logo {
+            padding: 10px;
+            width: 250px;
+        }
+    }
+    .search-hero__heading {
+        font-weight: 800;
+        letter-spacing: 0.2rem;
+        margin-bottom: 1.5rem;
+        font-size: 4.5rem;
+        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+
+        @media (max-width: 767px) {
+            font-size: 2.5rem;
+            letter-spacing: 0.1rem;
+            margin: 0;
+        }
+    }
+    .total-posts__count {
+        color: c.$brand--secondary;
+        font-size: 2.3rem;
+        font-weight: 400;
+        letter-spacing: 0.1rem;
+        @media (max-width: 767px) {
+            font-size: 1.45rem;
+        }
+    }
+}
+
+.styled-select {
+    select {
+        font-size: 15px;
+        font-weight: 700;
+        width: 237px;
+        height: 45px;
+        border-radius: 0;
+        border: 0;
+        outline: none;
+        box-shadow: none;
+        text-transform: uppercase;
+    }
+}

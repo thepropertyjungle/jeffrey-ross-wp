@@ -1,0 +1,552 @@
+/*
+    ATTENTION
+    =========
+
+    There is duplication within these styles due the differences in
+    behaviour and styles of the specific map search functionality.
+*/
+
+@use "../abstracts/colors" as c;
+@use "../abstracts/fonts" as t;
+
+.form__main-search {
+    margin-top: -120px;
+
+    // Map search styles
+    #form__map-search {
+        position: relative;
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        font-family: t.$f-Assistant;
+        background-color: c.$brand--secondary;
+        padding: 5rem 0;
+
+        @media (max-width: 991px) {
+            height: auto;
+            padding: 1.5em 1.5em 3.5em;
+        }
+
+        .advanced__collapse-btn {
+            position: absolute;
+            top: -49px;
+            min-width: 185px;
+            padding: 1em;
+            border: 0;
+            border-radius: 0;
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-align: center;
+            text-transform: uppercase;
+            display: inline-block;
+            letter-spacing: 0.091em;
+            background: transparent;
+            color: c.$white;
+            svg {
+                fill: c.$white;
+                width: 11px;
+                height: 11px;
+                margin: 0 5px 2px 7px;
+            }
+
+            @media (max-width: 767px) {
+                min-width: auto;
+                padding: 1em 0.8em;
+            }
+
+            &:hover {
+                background-color: c.$brand--secondary;
+                color: c.$brand--primary;
+
+                svg {
+                    fill: c.$brand--primary;
+                }
+            }
+        }
+
+        form {
+            .advanced__search {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                @media (max-width: 1024px) {
+                    flex-direction: column;
+                }
+
+                .advanced__search-fields {
+                    display: flex;
+                    padding: 0 2em;
+                    width: 100%;
+                    flex: 5;
+
+                    @media (max-width: 1024px) {
+                        flex-direction: column;
+                        padding: 0;
+                    }
+
+                    .advanced__search-location,
+                    .advanced__search-selects {
+                        flex: auto;
+                        padding: 0 1em;
+                    }
+                }
+
+                .advanced__search-submit {
+                    flex: 1;
+                    height: 100%;
+                    width: 100%;
+
+                    button {
+                        width: 100%;
+                        height: 132px;
+                        border: 0;
+                        border-radius: 0;
+                        background-color: c.$brand--primary;
+                        font-size: 1.6rem;
+                        font-weight: 700;
+                        letter-spacing: 0.091em;
+                        color: c.$brand--secondary;
+                        text-transform: uppercase;
+
+                        svg {
+                            width: 18px;
+                            fill: c.$brand--secondary;
+                        }
+
+                        span {
+                            font-weight: 700;
+                            letter-spacing: 0.091em;
+                            text-transform: uppercase;
+                        }
+
+                        &:hover {
+                            background: c.$brand--secondary;
+                            color: c.$brand--primary;
+
+                            svg {
+                                fill: c.$brand--primary;
+                            }
+                        }
+
+                        @media (max-width: 1024px) {
+                            margin-top: 1em;
+                            height: 60px;
+                        }
+                    }
+                }
+            }
+
+            label {
+                font-family: t.$f-Assistant;
+                font-size: 1.6rem;
+                width: 100%;
+                margin-bottom: 1em;
+                display: inline;
+                font-weight: 800;
+                text-transform: uppercase;
+                color: c.$brand--primary;
+                letter-spacing: 0.091em;
+                @media (max-width: 1024px) {
+                    margin-top: 1em;
+                }
+            }
+
+            select,
+            input {
+                box-shadow: none;
+                outline: 0;
+            }
+
+            option {
+                color: c.$brand--secondary !important;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                padding: 0.5em 0 0.8em 0;
+                border: 0;
+                border-bottom: 1px solid c.$brand--primary;
+                border-radius: 0px;
+                background: none;
+                font-size: 1.6rem;
+                color: c.$brand--primary;
+            }
+
+            .select-col {
+                position: relative;
+
+                svg {
+                    position: absolute;
+                    right: 1.1em;
+                    bottom: 1.3em;
+                    width: 10px;
+                    fill: c.$brand--tertiary;
+                }
+            }
+
+            select {
+                width: 100%;
+                padding: 0.5em 0 1em 0;
+                border: 0;
+                border-bottom: 1px solid c.$brand--primary;
+                border-radius: 0;
+                background-image: none;
+                background-color: transparent;
+                font-size: 1.6rem;
+                color: c.$brand--primary;
+            }
+        }
+
+        .collapseAdvanced {
+            .card-body {
+                padding: 0;
+                border-radius: 0;
+                border: none;
+                z-index: 1;
+                background-color: c.$brand--secondary;
+                @media (max-width: 767px) {
+                    margin-top: 2em;
+                }
+
+                .collapse__search-fields {
+                    display: flex;
+                    padding: 3em;
+                    width: 100%;
+                    max-width: 85%;
+                    @media (max-width: 1024px) {
+                        flex-direction: column;
+                        max-width: 100%;
+                        padding: 0;
+                    }
+
+                    .collapse__search-input {
+                        flex: 2.4;
+                        padding: 0 1em;
+                    }
+                    .collapse__search-selects {
+                        flex: auto;
+                        padding: 0 1em;
+                    }
+                }
+
+                .formcheck {
+                    @media (max-width: 1024px) {
+                        margin: 1em 0.8em;
+                    }
+                    input {
+                        opacity: 0;
+                    }
+                    input:checked + label:before {
+                        background: c.$brand--primary;
+                    }
+
+                    label {
+                        position: relative;
+                        font-weight: 800;
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            top: 5px;
+                            left: -20px;
+                            width: 1.2rem;
+                            height: 1.2rem;
+                            background: #cccccc;
+                            transition: background 0.3s;
+                        }
+                    }
+                    @media (max-width: 767px) {
+                        padding: 1em 0;
+                    }
+                }
+
+                @media (max-width: 767px) {
+                    margin-top: 1.5em;
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    // Tabbed search styles
+    .form__tabbed-content {
+        .nav-pills {
+            border: none;
+
+            .nav-item {
+                .nav-link {
+                    min-width: 185px;
+                    padding: 1em 0;
+                    margin: 0;
+                    border: 0;
+                    border-radius: 0;
+                    background: #ffffff52;
+                    font-size: 1.4rem;
+                    font-weight: 700;
+                    color: c.$brand--secondary;
+                    text-transform: uppercase;
+                    transition: background 0.3s;
+                    letter-spacing: 0.091em;
+                    text-align: center;
+
+                    &.active {
+                        background: c.$brand--secondary;
+                        color: c.$brand--primary;
+                    }
+
+                    @media (max-width: 767px) {
+                        min-width: auto;
+                        padding: 1em 0.8em;
+                    }
+                }
+
+                .advanced__collapse-btn {
+                    min-width: 185px;
+                    padding: 1em;
+                    margin: 0;
+                    border: 0;
+                    border-radius: 0;
+                    font-size: 1.4rem;
+                    font-weight: 600;
+                    text-align: center;
+                    text-transform: uppercase;
+                    display: inline-block;
+                    letter-spacing: 0.091em;
+                    background: transparent;
+                    color: c.$white;
+
+                    svg {
+                        fill: c.$white;
+                        width: 11px;
+                        height: 11px;
+                        margin: 0 5px 2px 7px;
+                    }
+
+                    @media (max-width: 767px) {
+                        min-width: auto;
+                        padding: 1em 0.8em;
+                    }
+
+                    &:hover {
+                        background-color: c.$brand--secondary;
+                        color: c.$brand--primary;
+
+                        svg {
+                            fill: c.$brand--primary;
+                        }
+                    }
+                }
+            }
+        }
+
+        .tab-content {
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+            font-family: t.$f-Assistant;
+            background-color: c.$brand--secondary;
+
+            @media (max-width: 991px) {
+                height: auto;
+                padding: 1.5em 1.5em 3.5em;
+            }
+
+            .tab-pane {
+                form {
+                    .advanced__search {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        @media (max-width: 1024px) {
+                            flex-direction: column;
+                        }
+
+                        .advanced__search-fields {
+                            display: flex;
+                            padding: 0 2em 0 3.5em;
+                            width: 100%;
+                            flex: 5;
+
+                            @media (max-width: 1024px) {
+                                flex-direction: column;
+                                padding: 0;
+                            }
+
+                            .advanced__search-location,
+                            .advanced__search-selects {
+                                flex: auto;
+                                padding: 0 1em;
+                            }
+                        }
+
+                        .advanced__search-submit {
+                            flex: 1;
+                            height: 100%;
+                            width: 100%;
+
+                            button {
+                                width: 100%;
+                                height: 132px;
+                                border: 0;
+                                border-radius: 0;
+                                background-color: c.$brand--primary;
+                                font-size: 1.6rem;
+                                font-weight: 700;
+                                letter-spacing: 0.091em;
+                                color: c.$brand--secondary;
+                                text-transform: uppercase;
+
+                                svg {
+                                    width: 18px;
+                                    fill: c.$brand--secondary;
+                                }
+
+                                span {
+                                    font-weight: 700;
+                                    letter-spacing: 0.091em;
+                                    text-transform: uppercase;
+                                }
+
+                                &:hover {
+                                    background: c.$brand--secondary;
+                                    color: c.$brand--primary;
+
+                                    svg {
+                                        fill: c.$brand--primary;
+                                    }
+                                }
+
+                                @media (max-width: 1024px) {
+                                    margin-top: 1em;
+                                    height: 60px;
+                                }
+                            }
+                        }
+                    }
+
+                    label {
+                        font-family: t.$f-Assistant;
+                        font-size: 1.6rem;
+                        width: 100%;
+                        margin-bottom: 1em;
+                        display: inline;
+                        font-weight: 800;
+                        text-transform: uppercase;
+                        color: c.$brand--primary;
+                        letter-spacing: 0.091em;
+                        @media (max-width: 1024px) {
+                            margin-top: 1em;
+                        }
+                    }
+
+                    select,
+                    input {
+                        box-shadow: none;
+                        outline: 0;
+                    }
+
+                    input[type="text"] {
+                        width: 100%;
+                        padding: 0.5em 0 0.8em 0;
+                        border: 0;
+                        border-bottom: 1px solid c.$brand--primary;
+                        border-radius: 0px;
+                        background: none;
+                        font-size: 1.6rem;
+                        color: c.$brand--primary;
+                    }
+
+                    .select-col {
+                        position: relative;
+
+                        svg {
+                            position: absolute;
+                            right: 1.1em;
+                            bottom: 1.3em;
+                            width: 10px;
+                            fill: c.$brand--tertiary;
+                        }
+                    }
+
+                    select {
+                        width: 100%;
+                        padding: 0.5em 0 1em 0;
+                        border: 0;
+                        border-bottom: 1px solid c.$brand--primary;
+                        border-radius: 0;
+                        background-image: none;
+                        background-color: transparent;
+                        font-size: 1.6rem;
+                        color: c.$brand--primary;
+                    }
+                }
+            }
+        }
+
+        .collapseAdvanced {
+            .card-body {
+                padding: 0;
+                border-radius: 0;
+                border: none;
+                z-index: 1;
+                background-color: c.$brand--secondary;
+                @media (max-width: 767px) {
+                    margin-top: 2em;
+                }
+
+                .collapse__search-fields {
+                    display: flex;
+                    padding: 3em;
+                    width: 100%;
+                    max-width: 85%;
+                    @media (max-width: 1024px) {
+                        flex-direction: column;
+                        max-width: 100%;
+                        padding: 0;
+                    }
+
+                    .collapse__search-input {
+                        flex: 2.4;
+                        padding: 0 1em;
+                    }
+                    .collapse__search-selects {
+                        flex: auto;
+                        padding: 0 1em;
+                    }
+                }
+
+                .formcheck {
+                    @media (max-width: 1024px) {
+                        margin: 1em 0.8em;
+                    }
+                    input {
+                        opacity: 0;
+                    }
+                    input:checked + label:before {
+                        background: c.$brand--primary;
+                    }
+
+                    label {
+                        position: relative;
+                        font-weight: 800;
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            top: 5px;
+                            left: -20px;
+                            width: 1.2rem;
+                            height: 1.2rem;
+                            background: #cccccc;
+                            transition: background 0.3s;
+                        }
+                    }
+                    @media (max-width: 767px) {
+                        padding: 1em 0;
+                    }
+                }
+
+                @media (max-width: 767px) {
+                    margin-top: 1.5em;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}

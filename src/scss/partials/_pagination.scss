@@ -1,0 +1,62 @@
+@use "../abstracts/colors" as c;
+@use "../abstracts/fonts" as t;
+
+.pagination {
+    margin: 2.5em 0 !important;
+
+    .page-item {
+        .page-link {
+            color: c.$brand--primary;
+            font-size: 2rem;
+            border-radius: 0;
+            padding: 0.5rem 1.5rem;
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: c.$brand--accent;
+                color: c.$white;
+            }
+        }
+
+        .pagination-select {
+            position: relative;
+            border: 1px solid var(--bs-pagination-border-color);
+            border-radius: 0;
+            padding-right: 2rem;
+            margin: 0;
+            height: 46px;
+            font-family: inherit;
+            font-size: inherit;
+            color: inherit;
+            cursor: pointer;
+
+            option {
+                background-color: c.$white;
+                color: c.$brand--primary;
+                margin: 0;
+
+                &:checked {
+                    background-color: c.$brand--accent !important;
+                    color: c.$white !important;
+                }
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: c.$brand--accent;
+                color: c.$white;
+            }
+        }
+
+        &.active {
+            .page-link {
+                z-index: 3;
+                color: c.$white;
+                background-color: c.$brand--primary;
+                border-color: c.$brand--primary;
+            }
+        }
+    }
+}

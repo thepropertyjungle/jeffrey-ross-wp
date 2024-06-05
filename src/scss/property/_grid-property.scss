@@ -1,0 +1,186 @@
+@use "../abstracts/colors" as c;
+@use "../abstracts/fonts" as t;
+.shortlist_card,
+.property-related,
+.property-grid {
+    background-color: c.$white;
+    border-radius: 0;
+    box-shadow: 0 0 28px rgba(0, 0, 0, 0.16);
+    position: relative;
+    height: 550px;
+    overflow: hidden;
+
+    .img-permalink {
+        .img-fluid {
+            width: 100%;
+            max-height: 225px;
+            border-radius: 0;
+            transition: transform 0.3s;
+
+            &:hover {
+                transform: scale(1.1);
+                transition: transform 0.3s;
+            }
+        }
+    }
+    .product__features {
+        position: absolute;
+        top: 9px;
+        right: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        color: c.$white;
+        list-style: none;
+        li {
+            margin-right: 0.4rem;
+            background: rgba(41, 50, 65, 0.9);
+            padding: 8px;
+            display: flex;
+            height: 30px;
+            justify-content: center;
+            align-items: center;
+            span {
+                margin-left: 3px;
+                font-size: 1.6rem;
+                font-weight: 600;
+            }
+            svg {
+                fill: c.$white;
+                width: 15px;
+            }
+        }
+    }
+    .availability {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 140px;
+        height: 40px;
+        border-radius: 0;
+        background-color: c.$brand--accent;
+        p {
+            font-family: t.$f-Assistant;
+            font-size: 16px;
+            font-weight: 700;
+            color: c.$white;
+            margin: 0;
+        }
+    }
+
+    .permalink__wrapper {
+        position: absolute;
+        left: 3rem;
+        bottom: 3rem;
+        .property-details__permalink {
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.082em;
+            color: c.$brand--primary;
+
+            svg {
+                margin-right: 3px;
+                margin-bottom: 2px;
+                fill: c.$brand--tertiary;
+                width: 1.1rem;
+            }
+        }
+    }
+}
+//PROPERTY META
+.related-property__meta,
+.shortlist__property-meta,
+.grid-property__meta {
+    padding: 3rem 3rem 0 3rem;
+    .property__type {
+        h1 {
+            color: c.$brand--tertiary;
+            font-family: t.$f-Assistant;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+    }
+
+    .property__address {
+        font-family: t.$f-Assistant;
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: c.$brand--primary;
+        line-height: 1.09;
+        margin-bottom: 0.4rem;
+    }
+
+    .property__price {
+        /* £645,000 */
+        color: c.$brand--secondary;
+        font-family: t.$f-Assistant;
+        margin-bottom: 1.6rem;
+        font-size: 1.6rem;
+
+        margin-top: 4px;
+
+        span {
+            /* Offers in excess of */
+            font-weight: 300;
+            color: #666666;
+            display: inline;
+        }
+    }
+    .property__rooms {
+        padding: 0;
+        margin: 0.6rem 0;
+        li {
+            display: inline-block;
+            font-family: t.$f-Assistant;
+            font-size: 1.6rem;
+            font-weight: 800;
+            line-height: 1em;
+            color: c.$brand--primary;
+            text-transform: uppercase;
+            margin-right: 8px;
+
+            svg {
+                width: 25px;
+                margin-right: 3px;
+
+                &.icon__bath {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+    .property__summary {
+        font-size: 1.6rem;
+        line-height: 1.5;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    .shortlist__btns {
+        position: absolute;
+        top: 39%;
+        right: 3rem;
+        width: 55px;
+        height: 55px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background: c.$white;
+
+        i {
+            svg {
+                fill: c.$brand--tertiary;
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}

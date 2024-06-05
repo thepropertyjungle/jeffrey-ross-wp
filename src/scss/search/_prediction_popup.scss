@@ -1,0 +1,61 @@
+@use "../abstracts/colors" as c;
+
+.prediction_popup {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 40px;
+  background: c.$white;
+  border-style: solid;
+  border-width: 1px;
+  border-color: c.$bootstrap-grey;
+  z-index: 100;
+  box-shadow: 5px 12px 16px -14px rgba(c.$bootstrap-black, 1);
+  .modal_content_developments {
+    /* to be styled if needed */
+  }
+  .modal_content_google_predictions {
+    /* to be styled if needed */
+  }
+  .modal_content_section_header {
+    background: c.$bootstrap-orange;
+    padding: 10px 10px;
+    color: c.$bootstrap-black;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .development_entry_link {
+    display: block;
+    padding: 5px 10px;
+    color: c.$bootstrap-blue;
+    text-decoration: none;
+    &:hover,
+    &:focus,
+    &:active {
+      color: c.$bootstrap-green;
+    }
+  }
+  .google_entry_link {
+    display: block;
+    padding: 5px 10px;
+    color: c.$bootstrap-blue;
+    text-decoration: none;
+    &:hover,
+    &:focus,
+    &:active {
+      color: c.$bootstrap-green;
+    }
+  }
+  .selected_prediction_entry {
+    /*
+            Needs clarification, this class didn't seem to be applied, or
+            exist with my specific WordPress website
+        */
+    background: #cccccc;
+  }
+  .place-icon {
+    img {
+      max-width: 30px;
+    }
+  }
+}

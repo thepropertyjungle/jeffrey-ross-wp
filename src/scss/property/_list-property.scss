@@ -1,0 +1,213 @@
+@use "../abstracts/colors" as c;
+
+.btn-hide {
+  @media (max-width: 920px) {
+    display: none;
+  }
+}
+
+.list-property-card {
+  margin-bottom: 1.7em;
+  padding: 2.5px;
+  border-radius: 0;
+  border: 1px solid c.$brand--secondary;
+  background: #ffffff;
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  }
+
+  .list__grid-image-container {
+    height: 100%;
+    position: relative;
+
+    .parent {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 1fr;
+      grid-column-gap: 3px;
+      grid-row-gap: 0;
+      overflow: hidden;
+      @media (max-width: 1280px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .div1 {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+    .div2 {
+      grid-area: 1 / 2 / 2 / 3;
+
+      img {
+        height: 50%;
+        &:not(:last-child) {
+          margin-bottom: 3px;
+        }
+      }
+      @media (max-width: 1280px) {
+        display: none;
+      }
+    }
+
+    .features-banner {
+      display: flex;
+      position: absolute;
+      bottom: 1.3rem;
+      left: 0.6rem;
+      gap: 8px;
+      z-index: 2;
+      .feature-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(41, 50, 65, 0.9);
+        padding: 0 0.8rem 0rem 0.8rem;
+        height: 30px;
+
+        p {
+          text-align: center;
+          font-size: 16px;
+          font-weight: 600;
+          color: #ffffff;
+          text-decoration: none solid rgb(255, 255, 255);
+          line-height: 30px;
+          text-transform: uppercase;
+          margin: 0;
+
+          svg {
+            fill: #fff;
+            width: 15px;
+            margin-right: 2px;
+            margin-bottom: 2px;
+          }
+        }
+      }
+    }
+
+    .availability {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 140px;
+      height: 40px;
+      border-radius: 0;
+      background-color: c.$brand--accent;
+      p {
+        font-size: 16px;
+        font-weight: 700;
+        color: c.$white;
+        margin: 0;
+      }
+    }
+  }
+  .property-list-img {
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .property-list-img-small {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    object-fit: cover;
+  }
+
+  .property__meta {
+    height: 100%;
+    width: 100%;
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    @media (max-width: 920px) {
+      padding: 2.5em;
+    }
+    .property__address {
+      font-size: 2.2rem;
+      font-weight: 500;
+      line-height: 1.09;
+      color: c.$brand--primary;
+    }
+
+    .property__price {
+      font-size: 18px;
+      font-weight: 700;
+      color: c.$brand--primary;
+      margin-bottom: 0.8em;
+
+      span {
+        /* Offers in excess of */
+        font-size: 17px;
+        font-weight: 400;
+      color: c.$brand--primary;
+        display: inline;
+      }
+    }
+
+    .property__summary {
+      font-size: 14.5px;
+      margin-bottom: 1.5em;
+    }
+    .property__rooms {
+      padding: 0;
+      margin: 7px 0;
+      li {
+        display: inline-block;
+        font-size: 17px;
+        font-weight: 700;
+      color: c.$brand--primary;
+        text-transform: uppercase;
+        margin-right: 6px;
+
+        svg {
+          width: 25px;
+          margin-right: 6px;
+
+          &.icon__bath {
+            margin-bottom: 9px;
+          }
+        }
+      }
+    }
+
+    .list-card-btns {
+      display: flex;
+      gap: 2em;
+
+      @media (max-width: 767px) {
+        gap: 1em;
+        flex-direction: column;
+      }
+      .shortlist__btns,
+      .list-details-btn {
+        font-style: normal;
+        color: c.$brand--primary;
+        font-size: 1.4rem;
+        font-weight: 800;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.082em;
+        transition: color 0.3s;
+
+        &:hover {
+          color: c.$brand--accent;
+        }
+        svg {
+          width: 13px;
+          height: 13px;
+          margin-bottom: 3px;
+          margin-right: 4px;
+          fill: c.$brand--accent;
+        }
+        i {
+          font-style: normal !important;
+        }
+      }
+    }
+  }
+}

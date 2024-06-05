@@ -1,0 +1,483 @@
+@use "../abstracts/colors" as c;
+@use "../abstracts/fonts" as t;
+
+.brand-primary-background {
+    background-color: c.$brand--primary;
+    min-height: 61rem;
+    padding: 28rem 0 30rem;
+    @media (max-width: 1024px) {
+        /*margin-top: -16em;*/
+        padding: 17.1rem 0 18.8rem;
+    }
+    @media (max-width: 767px) {
+        padding: 0 0 10rem;
+        height: auto;
+        min-height: initial;
+        margin-top: 0rem !important;
+        padding-top: 2rem;
+    }
+    .property-hero-logo {
+        margin-top: 20px;
+        img.custom-logo {
+            padding: 10px;
+            width: 250px;
+        }
+    }
+    .share-container {
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        gap: 1.5em;
+        height: 100%;
+
+        @media (max-width: 1024px) {
+            position: initial;
+            justify-content: start;
+        }
+        @media (max-width: 767px) {
+            flex-direction: column;
+            gap: 0.5em;
+            margin-top: 1em;
+            align-items: center;
+        }
+        p {
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            margin: 0;
+            color: c.$brand--secondary;
+        }
+        .shortlist-btn {
+            display: block;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            color: c.$brand--secondary;
+            svg {
+                width: 12px;
+                fill: c.$brand--secondary;
+                margin-bottom: 5px;
+                margin-right: 6px;
+            }
+            &:hover {
+                color: c.$white;
+
+                svg {
+                    fill: c.$white;
+                }
+            }
+        }
+        #st-1 {
+            z-index: 1;
+        }
+        .sharethis-inline-share-buttons {
+            z-index: 1;
+            .st-btn {
+                border-radius: 50px !important;
+            }
+        }
+    }
+    .property__meta {
+        @media (max-width: 1024px) {
+            margin-top: 2em;
+        }
+        @media (max-width: 767px) {
+            text-align: center;
+        }
+        .property-type {
+            h1 {
+                font-family: t.$f-Assistant;
+                display: block;
+                font-size: 1.4rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                color: c.$white;
+                text-transform: uppercase;
+            }
+        }
+        .property__address {
+            font-family: t.$f-Shippori;
+            font-weight: 800;
+            line-height: 1.3em;
+            letter-spacing: 0;
+            text-transform: none;
+            margin-bottom: 1.5rem;
+            font-size: 3.2rem;
+            color: c.$brand--secondary;
+
+            @media (max-width: 767px) {
+                font-size: 2.3rem;
+                width: 70%;
+                margin: 0.2em auto;
+            }
+        }
+
+        .property__price {
+            /* £645,000 */
+            font-weight: 800;
+            font-size: 1.9rem;
+            letter-spacing: 0.091em;
+            text-transform: uppercase;
+            color: c.$brand--secondary;
+
+            span {
+                /* Offers in excess of */
+                font-weight: 800;
+                font-size: 1.1rem;
+                letter-spacing: 0.091em;
+                text-transform: uppercase;
+                color: c.$brand--secondary;
+            }
+        }
+    }
+}
+
+.property-grey-bg {
+    background-color: #eeeeee;
+
+    .availability {
+        z-index: 10;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 140px;
+        height: 40px;
+        border-radius: 0;
+        background-color: c.$brand--accent;
+        p {
+            font-size: 16px;
+            font-weight: 700;
+            color: c.$white;
+            margin: 0;
+        }
+    }
+
+    .property-tabs {
+        margin-top: 3em;
+        @media (max-width: 1024px) {
+            display: none;
+        }
+        .nav-tabs {
+            border: 0;
+
+            .nav-link {
+                min-width: 18.4rem;
+                padding: 1em;
+                margin: 0;
+                border: 0;
+                border-radius: 0;
+                background: c.$brand--primary;
+                color: c.$brand--secondary;
+
+                font-size: 1.4rem;
+                font-weight: 800;
+                line-height: 1.8em;
+                letter-spacing: 0.091em;
+                text-align: center;
+                text-transform: uppercase;
+
+                transition: background 0.3s;
+                margin-bottom: 0;
+
+                &:not(:last-child) {
+                    margin-right: 3px;
+                }
+
+                svg {
+                    width: 20px;
+                }
+
+                &:focus,
+                &.active,
+                &:hover {
+                    color: c.$brand--primary;
+                    background: c.$white;
+                    border: 0;
+                    outline: none;
+                }
+
+                @media (max-width: 991px) {
+                    display: none; /* Hide tabs navigation */
+                }
+            }
+        }
+    }
+}
+
+#property-details {
+    padding: 9rem 0 15rem 0;
+
+    .tab-content {
+        .tab-pane {
+            .tab-headings {
+                font-family: t.$f-Shippori;
+                font-size: 3.2rem;
+                font-weight: 800;
+                color: c.$brand--primary;
+                margin-bottom: 4rem;
+            }
+
+            .property-single__description {
+                margin-bottom: 2.8rem;
+                line-height: 1.75;
+                font-weight: 400;
+                font-size: 1.6rem;
+            }
+
+            .property__rooms {
+                padding: 0;
+
+                li {
+                    display: inline-block;
+                    font-family: t.$f-Assistant;
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: c.$brand--secondary;
+                    text-transform: uppercase;
+
+                    svg {
+                        width: 23px;
+                        margin-right: 3px;
+                    }
+                }
+            }
+
+            #property__features {
+                columns: 2;
+                list-style: none;
+                padding: 0;
+                margin: 3em 0;
+
+                li {
+                    margin: 1em 0;
+                    padding: 0;
+                    font-family: t.$f-Assistant;
+                    list-style: none;
+                    font-weight: 500;
+
+                    svg {
+                        background-color: c.$brand--primary;
+                        width: 22px;
+                        height: 22px;
+                        border-radius: 50px;
+                        padding: 4px;
+                        margin-right: 1em;
+                    }
+                }
+            }
+
+            @media (max-width: 991px) {
+                display: block; /* Always show tab content */
+                opacity: 1;
+            }
+        }
+    }
+}
+
+// SIDE PROPERTY ENQUIRY BOX
+.enquiry-box {
+    background-color: c.$brand--primary;
+    margin-bottom: 3rem;
+    padding: 3.7rem 2rem 3.7rem 4rem;
+    border-radius: 0;
+    z-index: 1;
+
+    @media (max-width: 1024px) {
+        position: initial;
+        margin-top: 2em;
+    }
+
+    @media (max-width: 767px) {
+        padding: 2em 1.5em;
+    }
+
+    h3 {
+        font-family: t.$f-Shippori;
+        font-size: 2.2rem;
+        font-weight: 500;
+        line-height: 1.36;
+        margin-bottom: 1.1rem;
+        color: c.$brand--secondary;
+    }
+
+    h2 {
+        margin: 0;
+
+        a {
+            color: c.$white;
+            font-family: t.$f-Assistant;
+            font-size: 3.4rem;
+            font-weight: 700;
+            transition: color 0.3s;
+            text-decoration: none;
+            line-height: 1.32;
+            margin: 0;
+            cursor: pointer;
+
+            &:hover,
+            &.active,
+            &:focus {
+                color: c.$brand--accent;
+            }
+        }
+    }
+
+    .viewing-request-btn {
+        display: block;
+        transition: color 0.3s;
+        text-decoration: none;
+        line-height: 1.32;
+        font-weight: 700;
+        font-size: 1.8rem;
+        text-transform: lowercase;
+        color: c.$white;
+        span {
+            color: c.$brand--tertiary;
+            font-size: 1.8rem;
+            transition: color 0.3s;
+            text-decoration: none;
+            line-height: 1.32;
+
+            &:hover,
+            &.active,
+            &:focus {
+                color: c.$brand--accent;
+            }
+        }
+        &:hover,
+        &.active,
+        &:focus {
+            color: c.$white;
+        }
+    }
+
+    .enquiry-box__cta {
+        display: flex;
+        gap: 2em;
+        margin-top: 2em;
+        padding-top: 1.3em;
+        border-top: 1px solid c.$brand--secondary;
+
+        @media (max-width: 767px) {
+            flex-direction: column;
+            gap: 0.5em;
+        }
+
+        a {
+            font-family: t.$f-Assistant;
+            font-weight: 800;
+            letter-spacing: 0.092em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            color: c.$brand--secondary;
+            &:hover {
+                color: c.$brand--accent;
+            }
+        }
+
+        .brochure-download {
+            line-height: 3.5rem;
+
+            svg {
+                width: 17px;
+                fill: c.$white;
+                margin: -8px 5px 0 0;
+            }
+        }
+
+        .add-to-shortlist {
+            .shortlist__btns {
+                padding: 0;
+
+                .tpj_add_to_shortlist,
+                .tpj_remove_from_shortlist {
+                    color: c.$brand--secondary;
+                    font-family: t.$f-Assistant;
+                    font-weight: 700;
+                    font-style: initial;
+                    letter-spacing: 0.092em;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    transition: color 0.3s;
+
+                    svg {
+                        width: 13px;
+                        fill: c.$white;
+                        margin-bottom: 6px;
+                        margin-right: 3px;
+                    }
+
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        color: c.$brand--accent;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//APPRAISAL BOX
+.appraisal-box {
+    margin-top: 1.5em;
+    border: 10px solid c.$brand--primary;
+    text-align: center;
+    padding: 3rem 1.5rem;
+
+    .box__inner {
+        max-width: 33.3rem;
+        margin: 0 auto;
+
+        .box__icon {
+            margin-bottom: 1.5rem;
+            color: c.$brand--tertiary;
+            svg {
+                fill: c.$brand--tertiary;
+                width: 8rem;
+            }
+        }
+    }
+
+    .box__title {
+        margin-bottom: 1rem;
+        font-size: 2.6rem;
+        font-weight: 700;
+        line-height: 1.15;
+        color: c.$brand--primary;
+    }
+
+    .box__actions {
+        padding-top: 1.7rem;
+        display: flex;
+        justify-content: center;
+
+        a {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.082em;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            color: c.$brand--tertiary;
+
+            svg {
+                fill: c.$brand--tertiary;
+                width: 1.2rem;
+                transform: rotate(-90deg) translateY(0.8rem);
+                transition: color 0.3s;
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: c.$brand--accent;
+            }
+        }
+    }
+}

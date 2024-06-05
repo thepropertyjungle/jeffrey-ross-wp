@@ -1,0 +1,229 @@
+@use "../abstracts/colors" as c;
+@use "../abstracts/fonts" as t;
+.viewing-gform {
+  margin-top: -18.3em;
+  @media (max-width: 1024px) {
+    margin-top: -15.5em;
+  }
+  @media (max-width: 767px) {
+    margin-top: -11em;
+  }
+}
+
+.contact-form,
+.valuation-form,
+.register-form,
+.viewing-gform {
+  .viewing-gform__hero {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(
+      90deg,
+      rgba(101, 101, 101, 1) 0%,
+      rgba(101, 101, 101, 1) 0%,
+      rgba(101, 101, 101, 1) 0%,
+      rgba(0, 0, 0, 0.6447172619047619) 0%
+    );
+
+    @media (max-width: 1024px) {
+      height: 50vh;
+    }
+
+    .viewing-gform__address {
+      color: c.$white;
+      font-family: var(--e-global-typography-c4c7b85-font-family), Sans-serif;
+      font-size: var(--e-global-typography-c4c7b85-font-size);
+      font-weight: var(--e-global-typography-c4c7b85-font-weight);
+      text-transform: var(--e-global-typography-c4c7b85-text-transform);
+      line-height: var(--e-global-typography-c4c7b85-line-height);
+      letter-spacing: var(--e-global-typography-c4c7b85-letter-spacing);
+      word-spacing: var(--e-global-typography-c4c7b85-word-spacing);
+      text-align: center;
+      padding: 0 1em;
+    }
+    .viewing-gform__heading {
+      color: var(--e-global-color-primary);
+      font-family: var(--e-global-typography-e1876ea-font-family), Sans-serif;
+      font-size: var(--e-global-typography-e1876ea-font-size);
+      font-weight: var(--e-global-typography-e1876ea-font-weight);
+      text-transform: var(--e-global-typography-e1876ea-text-transform);
+      line-height: var(--e-global-typography-e1876ea-line-height);
+      letter-spacing: var(--e-global-typography-e1876ea-letter-spacing);
+      word-spacing: var(--e-global-typography-e1876ea-word-spacing);
+    }
+  }
+  .gform_wrapper.gravity-theme .gform_fields {
+    grid-row-gap: 2.5em !important;
+  }
+
+  h3.gsection_title {
+    margin-top:30px;
+    line-height: 2em !important;
+    letter-spacing: 2px;
+    font-size: 24px !important;
+    font-weight: 800 !important;
+    text-align: center;
+    color: c.$brand--primary !important;
+    text-transform:uppercase;
+  }
+
+  .form-subheads {
+    text-align: center;
+    padding: 5em 0;
+
+    border: 0;
+    position: relative;
+    border-bottom: 0 !important;
+    &::after {
+      content: "";
+      width: 79px;
+      border: 0;
+      height: 2px;
+      background: c.$brand--tertiary;
+      position: absolute;
+      left: 45.5%;
+      bottom: 0;
+
+      @media (max-width: 912px) {
+        left: 42.5%;
+        bottom: 0;
+      }
+
+      @media (max-width: 767px) {
+        left: 35%;
+      }
+    }
+    h3 {
+      line-height: 2em !important;
+      letter-spacing: 2px;
+      font-size: 24px !important;
+      font-weight: 800 !important;
+      text-align: center;
+      color: c.$brand--tertiary !important;
+
+      @media (max-width: 767px) {
+        line-height: 1.3em !important;
+      }
+    }
+  }
+
+  label.gfield_label {
+    font-family: t.$f-Assistant !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    color: c.$brand--secondary !important;
+    line-height: 1.44 !important;
+  }
+  select,
+  input[type="text"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="email"] {
+    padding: 0.95rem 1rem !important;
+    margin-bottom: 3rem;
+    border: 0 !important;
+    border-radius: 0;
+    background-color: #e9e9e9 !important;
+    font-size: 1.6rem;
+    color: #333;
+    box-shadow: none;
+    outline: none;
+  }
+
+  textarea {
+    padding: 3.4rem 1rem;
+    margin-bottom: 3rem;
+    border: 0;
+    border-radius: 0;
+    background: #e9e9e9 !important;
+    font-size: 1.6rem;
+    color: #333;
+    box-shadow: none;
+    outline: none;
+  }
+
+  .viewing-gform__wrapper {
+    padding: 6.5rem 1.5rem;
+    margin-top: -3em;
+    background: #fff;
+  }
+
+  input[type="submit"],
+  .gform_button {
+    padding: 1em 5em !important;
+    background: c.$brand--primary !important;
+    color: c.$brand--secondary !important;
+    font-family: var(--e-global-typography-8e54566-font-family), Sans-serif !important;
+    font-size: var(--e-global-typography-8e54566-font-size) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase!important;
+    line-height: var(--e-global-typography-8e54566-line-height) !important;
+    letter-spacing: var(
+      --e-global-typography-8e54566-letter-spacing
+    ) !important;
+    word-spacing: var(--e-global-typography-8e54566-word-spacing) !important;
+    fill: var(--e-global-color-secondary) !important;
+    color: var(--e-global-color-secondary) !important;
+    background-color: var(--e-global-color-primary) !important;
+    border: 1px solid var(--e-global-color-primary) !important;
+    border-radius: 0 !important;
+    &:hover {
+      color: c.$brand--primary !important;
+      background: c.$brand--secondary !important;
+    }
+  }
+
+  .gchoice {
+    margin-bottom: 1.5em;
+
+    .gform-field-label {
+      &::before {
+        color: c.$brand--tertiary;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .card.card--gdpr {
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0);
+    padding: 1.3rem 0;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+    .card-title {
+      font-family: t.$f-Assistant;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    p.card-text {
+      margin: 0 0 0.5rem 0;
+    }
+    label {
+      margin: 0 !important;
+    }
+    .card-body {
+      position: relative;
+      padding: 0rem;
+    }
+  }
+}
+
+.gform_wrapper.gravity-theme .gsection {
+  border-bottom: none !important;
+  padding: 0px!important;
+}
+.gform_wrapper.gravity-theme .gfield_checkbox label {
+  font-size: 1.6rem !important;
+ font-weight:400;
+}
+
+.gform_wrapper.gravity-theme .gfield_label {
+  font-weight:400!important;
+}

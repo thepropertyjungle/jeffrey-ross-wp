@@ -1,0 +1,86 @@
+@use "../abstracts/colors" as c;
+@use "../abstracts/fonts" as t;
+
+.stamp-duty-heading {
+    font-size: 18px;
+    color: c.$brand--primary!important;
+    font-weight: 600;
+}
+
+#stamp-duty-form .input-group {
+    margin-top: 10px!important;
+    margin-bottom: 30px!important;
+    }
+    
+    .input-group-text {
+        font-size: 22px!important;
+        color:c.$brand--primary!important;
+    }
+
+    #stamp-duty-form   .form-control {
+        font-size: 22px!important;
+        color: #14204e !important;
+    }
+
+    #stamp-duty-form   .form-check {
+         margin-bottom: 10px!important;
+    }
+
+    .form-check-input[type=checkbox] {
+        border-radius: 0;
+        border: solid 1px c.$brand--primary!important;
+        padding: 8px;
+        margin-right: 10px;
+    }
+    
+    #stamp-duty-table th {
+        padding: 5px;
+        background-color:c.$brand--primary ;
+        color:#fff;
+    }
+    
+    #stamp-duty-table td {
+        padding: 5px;
+        border: 1px solid grey;
+    }
+    
+    .stamp-duty-results h5 {
+        margin-bottom: 10px!important;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    
+    #amount-to-pay {
+        margin-bottom: 20px;
+    }
+    
+    #effective-rate {
+        margin-bottom: 20px;
+    }
+
+    #calculate-button {
+        margin-top: 20px;
+        border: 0px solid transparent!important;
+    }
+
+    .stamp-duty-results__title {
+        font-size: 18px;
+        color: c.$brand--primary!important;
+        font-weight: 600;
+        margin-bottom: 20px;
+       
+    }
+
+    .stamp-duty-results-container {
+        margin-top: 40px !important;
+    }
+
+    .stamp-duty-results__amount {
+        margin-top: 20px !important;     
+        margin-bottom: 10px; 
+    }
+
+
+    .stamp-duty-results__rate {
+        margin-bottom: 20px !important;   
+    }

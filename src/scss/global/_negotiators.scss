@@ -1,0 +1,83 @@
+@use "../abstracts/colors" as c;
+@use "../abstracts/fonts" as t;
+.negotiator__single-card,
+.negotiator__card {
+  width: 100%;
+  border: 0;
+  background: #ffffff;
+  box-shadow: 0 0 28px rgba(0, 0, 0, 0.16);
+  text-decoration: none;
+  overflow: hidden;
+  margin-bottom: 2em;
+  transition: box-shadow 300ms ease-in-out;
+  &:hover {
+    box-shadow: 0 9px 9px rgb(0 0 0 / 42%);
+    transition: box-shadow 300ms ease-in-out;
+  }
+
+  .negotiator__single-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .negotiator__img {
+    width: 100%;
+    height: 370px;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .negotiator__meta {
+    padding: 2em 1em;
+  }
+  .negotiator__job {
+    h5 {
+      text-align: center;
+      text-transform: uppercase;
+      color: #999999;
+      font-size: 14px;
+    }
+  }
+
+  .negotiator__title {
+    h4 {
+      text-align: center;
+      font-size: 23px;
+      font-weight: 700;
+      color: c.$brand--primary;
+    }
+  }
+  .negotiator__bio {
+    padding: 1em 2em;
+    h4 {
+      text-align: center;
+      line-height: 1.5em;
+      font-size: 16px;
+      font-weight: 400;
+      color: c.$brand--secondary;
+    }
+  }
+
+  .social-col {
+    h4 {
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .negotiator__cta {
+      font-family: t.$f-Assistant;
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.9em;
+      word-spacing: 0.08em;
+      background-color: c.$brand--primary;
+      border-radius: 5px;
+      margin-bottom: 0.5em;
+      padding: 0.2em 1em;
+      color: c.$brand--secondary;
+    }
+  }
+}

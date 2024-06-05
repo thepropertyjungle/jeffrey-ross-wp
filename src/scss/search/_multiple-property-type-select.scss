@@ -1,0 +1,104 @@
+@use "../abstracts/colors" as c;
+
+.tpj-multiple-property-select {
+    min-width: 200px;
+    background: c.$white;
+    border-radius: 4px;
+}
+.tpj-mp-types-ui {
+    position: relative;
+}
+.tpj-select-types {
+    border: solid 1px #cccccc;
+    min-height: 20px;
+    border-radius: 4px;
+    padding: 7px 15px;
+    padding-right: 25px;
+    position: relative;
+    display: flex;
+    min-height: 35px;
+    z-index: 10;
+    cursor: pointer;
+}
+.tpj-select-types-placeholder {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 7px 15px;
+    color: #cccccc;
+    z-index: 5;
+}
+.tpj-pt-selected-item {
+    border: 1px #e9e9eb solid;
+    background-color: #f4f4f5;
+    color: #909399;
+    border-radius: 4px;
+    padding: 0px 9px;
+    cursor: default;
+}
+.tpj-pt-selected-item {
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.p-type-title {
+    margin-right: 8px;
+}
+.p-type-close {
+    background: #c0c4cc;
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.6rem;
+}
+.p-type-close:hover {
+    background: #bdbfc2;
+}
+.tpj-mp-types-arrow {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    color: #828282;
+}
+.tpj-mp-types-list {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    top: 40px;
+    left: 0;
+    max-height: 250px;
+    overflow-y: auto;
+    padding-top: 10px;
+    border: solid 1px #cccccc;
+    background: c.$white;
+    border-radius: 4px;
+    display: none;
+}
+.tpj-mp-types-list.active {
+    display: block;
+}
+.mp-types-entry {
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.mp-types-entry .entry-checked {
+    color: green;
+    display: none;
+}
+.mp-types-entry.selected .entry-checked {
+    display: block;
+}
+.mp-types-entry.selected .entry-label {
+    color: #409eff;
+}
+.mp-types-entry:hover {
+    background: #f5f7fa;
+}

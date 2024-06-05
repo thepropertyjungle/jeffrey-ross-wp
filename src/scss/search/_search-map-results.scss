@@ -1,0 +1,69 @@
+@use "../abstracts/colors" as c;
+
+#search-map-results {
+    position: relative;
+    height: 700px;
+    margin: 0 0 12rem 0;
+    border: 1px solid var(--e-global-color-primary);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+
+    .map-info {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+    }
+
+    .btn {
+        position: absolute;
+        top: 10px;
+        right: 60px;
+        padding: 0.8rem 1.25rem;
+        font-size: 1.6rem;
+        border-radius: 0;
+        color: c.$white;
+
+        &.tpj_draw_on_map_btn,
+        &.tpj_exit_draw_btn,
+        &.tpj_clear_drawing_on_map_btn,
+        &.tpj_clear_bounds_shape_btn {
+            background-color: c.$brand--accent;
+            border-color: c.$brand--accent;
+        }
+    }
+}
+
+.tpj_map_no_results_map_html_replacement {
+    padding: 5rem 0 10rem 0;
+    text-align: center;
+}
+
+.gm-style-iw {
+    max-width: 300px !important;
+
+    .gm-style-iw-d {
+        a {
+            img {
+                max-width: 100% !important;
+            }
+
+            span {
+                font-family: var(--e-global-typography-primary-font-family);
+                width: 100%;
+                margin-bottom: 1em;
+                display: inline;
+                font-size: 15px;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: var(--e-global-color-primary);
+                letter-spacing: 0.091em;
+            }
+        }
+    }
+}

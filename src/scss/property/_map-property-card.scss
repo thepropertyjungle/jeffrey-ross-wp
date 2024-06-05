@@ -1,0 +1,66 @@
+//Layout GMAP Styling
+.gm-style-iw,
+.gm-style-iw-c {
+  max-width: 270px !important;
+  padding: 0 !important;
+  .gm-style-iw-d {
+    overflow: hidden !important;
+    min-height: 345px !important;
+    max-height: 345px !important;
+
+    height: 180px;
+    a {
+      max-height: 180px;
+      img {
+        min-width: 100% !important;
+        max-width: 100% !important;
+        max-height: 180px;
+      }
+    }
+  }
+}
+
+.property-map__meta {
+  padding: 1em 1.5em;
+  min-height: 180px;
+  max-height: 180px;
+  .property-map__type {
+    h1 {
+      font-family: $ff-azo-sans;
+      font-size: 13px;
+      color: $brand--primary;
+      text-transform: uppercase;
+    }
+  }
+
+  .property-price-rooms-group {
+    display: flex;
+    align-items: center;
+    gap: 5em;
+    max-height: 45px;
+    .property-map__price {
+      /* £645,000 */
+      font-family: $ff-azo-sans;
+      font-size: 20px;
+      font-weight: 700;
+      color: $brand--secondary;
+
+      span {
+        /* Offers in excess of */
+        font-size: 15px;
+        font-weight: 400;
+        color: #666666;
+        display: block;
+      }
+    }
+  }
+  .property-map__address {
+    h3 {
+      font-family: $ff-azo-sans;
+      font-size: 16px;
+      font-weight: 400;
+      color: #333333;
+      margin: 0.5em 0;
+    }
+  }
+}
