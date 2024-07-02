@@ -45,6 +45,56 @@
         );
     }
 
+
+
+
+    $(document).ready(function() {
+        // Function to toggle visibility based on checkboxes
+        function toggleVisibility() {
+            if ($('#forSaleCheckbox').is(':checked')) {
+                $('.featured-prop').show();
+                $('.featured-rent').hide();
+            } else if ($('#forRentCheckbox').is(':checked')) {
+                $('.featured-prop').hide();
+                $('.featured-rent').show();
+            }
+        }
+
+        // Initially trigger the toggle function
+        toggleVisibility();
+
+        // Add event listeners to checkboxes
+        $('#forSaleCheckbox').on('change', function() {
+            if ($(this).is(':checked')) {
+                $('#forRentCheckbox').prop('checked', false);
+            } else {
+                $('#forRentCheckbox').prop('checked', true);
+            }
+            toggleVisibility();
+        });
+
+        $('#forRentCheckbox').on('change', function() {
+            if ($(this).is(':checked')) {
+                $('#forSaleCheckbox').prop('checked', false);
+            } else {
+                $('#forSaleCheckbox').prop('checked', true);
+            }
+            toggleVisibility();
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
     // Debugging code will add borders around your elements
     function updateElementStatus() {
         $(".lazy-load-html").each(function () {

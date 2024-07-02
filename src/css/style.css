@@ -949,8 +949,13 @@ blockquote:last-child {
   font-display: swap;
 }
 .swiper.swiper__featured {
-  padding: 5rem 1rem 0rem;
+  padding: 5rem 2rem 2.5rem 2rem;
   width: 100%;
+}
+@media (min-width: 767px) {
+  .swiper.swiper__featured {
+    padding: 5rem 2.5rem 2.5rem;
+  }
 }
 
 #swiperHomeNext,
@@ -960,7 +965,7 @@ blockquote:last-child {
 }
 #swiperHomeNext svg,
 #swiperHomePrev svg {
-  fill: #1b313e;
+  fill: var(--e-global-color-accent);
   width: 18px;
 }
 #swiperHomeNext::after,
@@ -975,8 +980,7 @@ blockquote:last-child {
 }
 
 #swiperHomeNext {
-  right: 1.5em;
-  left: unset;
+  left: 3em;
 }
 #swiperHomeNext svg {
   -webkit-transform: rotate(-90deg);
@@ -984,13 +988,12 @@ blockquote:last-child {
 }
 @media (max-width: 767px) {
   #swiperHomeNext {
-    right: 1em;
+    left: 2.5em;
   }
 }
 
 #swiperHomePrev {
-  right: 3em;
-  left: unset;
+  left: 1.5em;
 }
 #swiperHomePrev svg {
   -webkit-transform: rotate(90deg);
@@ -998,7 +1001,7 @@ blockquote:last-child {
 }
 @media (max-width: 767px) {
   #swiperHomePrev {
-    right: 2.5em;
+    left: 1em;
   }
 }
 
@@ -1172,13 +1175,6 @@ blockquote:last-child {
 .thumbnailsSwiper__wrapper #swiperThumbsPrev svg {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
-}
-
-.check {
-  gap: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 @font-face {
@@ -1894,11 +1890,6 @@ blockquote:last-child {
 }
 .feature-grid .img-permalink {
   border-radius: 8px;
-  height: 250px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  background-position: center !important;
-  background-size: 100% !important;
 }
 .feature-grid .img-permalink .img-fluid {
   width: 100%;
@@ -1968,7 +1959,7 @@ blockquote:last-child {
   font-size: 1.8rem;
   font-weight: 600;
   color: var(--e-global-color-primary);
-  margin-bottom: 0px;
+  margin-bottom: 1em;
 }
 .feature-grid .property-grid__meta .property-grid__price .rent-frequency {
   font-size: 0.75em;
@@ -2018,50 +2009,6 @@ blockquote:last-child {
   margin-bottom: 2px;
   fill: #ff5830;
   width: 14px;
-}
-
-.property__rooms {
-  padding: 0;
-  position: absolute;
-  bottom: 3em;
-  left: 0px;
-}
-.property__rooms li {
-  display: inline-block;
-  font-size: 16px;
-  font-weight: 800;
-  color: var(--e-global-color-primary);
-  text-transform: uppercase;
-  margin-right: 8px;
-}
-.property__rooms li svg {
-  width: 23px;
-  margin-right: 3px;
-}
-.property__rooms li svg.icon__bath {
-  margin-bottom: 7px;
-}
-
-.property__corner-flash {
-  background: #c83d26;
-  color: white;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 5px 10px;
-  border-radius: 8px;
-  top: 20px;
-  position: absolute;
-  left: -10px;
-}
-
-.featured-rent .property__corner-flash,
-.featured-prop .property__corner-flash {
-  display: none;
-}
-
-.check input[type=radio]:checked + label {
-  font-weight: bold;
 }
 
 @font-face {

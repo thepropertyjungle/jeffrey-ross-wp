@@ -4,9 +4,11 @@
 
 <a href="{{ $property['permalink'] }}"  class="feature-grid{{ $property['featured'] ?? false ? ' property-grid__featured' : '' }}">
     <div>
+    @include('partials/search-results-corner-flash')
+
     <div class="property__img" >
     @if ($hasImages)
-        <div class="img-permalink" style="background: url('{{ $property['images'][0]['optimised_image_url'] ?? '' }}/279') bottom center no-repeat;"></div>
+        <div class="img-permalink" style="background: url('{{ $property['images'][0]['optimised_image_url'] ?? '' }}/500') bottom center no-repeat;"></div>
         @else
             <img src="" alt="Awaiting Images for {{ $property['Address']['display_address'] }}">
         @endif
@@ -22,13 +24,15 @@
                         {{ $property['bedrooms'] }} Bed For @if ($property['instruction_type'] == 'Letting') Rent @else Sale @endif
                     </p>
                 </div>
+            
+                <div class="property-grid__price">
+                    £{{ number_format($property['price']) }} <span class="rent-frequency">{{ $property['instruction_type'] == 'Letting' ? ($property['rent_frequency'] == 'Weekly' ? 'Per Week' : 'PCM, Fees Apply') : '' }}</span>
+                </div> 
+
                 <div class="property-grid__address">
                     {{ $property['Address']['address_2'] ?? '' }}, {{ $property['Address']['town'] ?? '' }}
                 </div>  
                    
-                <div class="property-grid__price">
-                    £{{ number_format($property['price']) }} <span class="rent-frequency">{{ $property['instruction_type'] == 'Letting' ? ($property['rent_frequency'] == 'Weekly' ? 'Per Week' : 'PCM, Fees Apply') : '' }}</span>
-                </div> 
         </div>
     </div>
     <ul class="property__rooms">

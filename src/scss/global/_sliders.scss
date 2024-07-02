@@ -2,12 +2,10 @@
 @use "../abstracts/fonts" as t;
 
 .swiper.swiper__featured {
-    padding: 5rem 2rem 2.5rem 2rem;
+    padding: 5rem 1rem 0rem;;
     width: 100%;
 
-    @media (min-width: 767px) {
-      padding: 5rem 2.5rem 2.5rem;
-    }
+   
 }
 
   #swiperHomeNext,
@@ -15,7 +13,7 @@
     position: absolute;
     top: 0.9rem;
     svg {
-      fill: c.$brand--accent;
+      fill:#1b313e;
       width: 18px;
     }
     &::after {
@@ -28,22 +26,24 @@
   }
 
   #swiperHomeNext {
-    left: 3em;
+  right: 1.5em;
+  left:unset;
     svg {
       transform: rotate(-90deg);
     }
     @media (max-width: 767px) {
-      left: 2.5em;
+      right: 1em;
     }
   }
   #swiperHomePrev {
-    left: 1.5em;
+    right: 3em;
+    left:unset;
 
     svg {
       transform: rotate(90deg);
     }
     @media (max-width: 767px) {
-      left: 1em;
+      right: 2.5em;
     }
   }
 
@@ -63,6 +63,12 @@
 
     .swiper-wrapper {
       .swiper-slide {
+  
+        & .feature-grid {
+
+          box-shadow: unset !important;
+        }
+
         max-height: 710px;
         &::before {
           content: "";
@@ -212,4 +218,10 @@
       transform: rotate(90deg);
     }
   }
+}
+
+.check {
+
+  gap:10px;
+  display: flex;
 }
