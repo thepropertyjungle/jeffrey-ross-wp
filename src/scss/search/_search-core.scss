@@ -1,6 +1,342 @@
 @use "../abstracts/colors" as c;
 @use "../abstracts/fonts" as t;
 
+
+
+
+#search-form--tabbed.home-search {
+    .nav-tabs {
+        border: none;
+        gap: 40px;
+        padding-bottom: 20px;
+        .nav-item {
+            .nav-link {
+                min-width: unset;
+                font-family: var(--e-global-typography-241d6f4-font-family), Sans-serif;
+                font-size: var(--e-global-typography-241d6f4-font-size);
+                font-weight: var(--e-global-typography-241d6f4-font-weight);
+                line-height: var(--e-global-typography-241d6f4-line-height);
+                letter-spacing: var(--e-global-typography-241d6f4-letter-spacing);
+                word-spacing: var(--e-global-typography-241d6f4-word-spacing);
+                color: var(--e-global-color-fa98db2);
+                padding: 0 0;
+                margin: 0;
+                border: 0;
+                border-radius: 0;
+                background: white;
+                transition: 0.3s;
+                border-bottom: 2px solid transparent;
+                text-transform: unset;
+
+                &:hover {
+                    border-bottom: 2px solid #E73331;
+                    background: unset;
+                    color: unset;
+                      
+                }
+
+                &.active {
+                 border-bottom: 2px solid #E73331;
+                 background: unset;
+                 color: unset;
+                }
+
+                @media (max-width: 767px) {
+                    min-width: auto;
+                    padding: 0px;
+                }
+            }
+
+            .draw-search-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 185px;
+                height: 56.25px;
+                margin: 0;
+                border: 0;
+                border-radius: 0;
+                font-size: 14px;
+                font-weight: 800;
+                text-align: center;
+                text-transform: uppercase;
+                background: rgba(41, 50, 65, 0);
+                color: c.$white;
+                svg {
+                    fill: c.$white;
+                    width: 22px;
+                    height: 20px;
+                    margin-right: 5px;
+                    margin-bottom: 2px;
+                }
+
+                &:hover {
+                    background-color: c.$brand--primary;
+                    color: c.$brand--secondary;
+                    svg {
+                        fill: c.$brand--secondary;
+                    }
+                }
+
+                @media (max-width: 767px) {
+                    min-width: auto;
+                    padding: 1em 0.8em;
+                }
+            }
+        }
+    }
+
+    .tab-content {
+        background-color: white;
+        max-width: 970px;
+        box-shadow: 0 0px 0px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        padding: 10px;
+        @media (max-width: 1024px) {
+            height: auto;
+            padding: 10px;
+        }
+        @media (max-width: 540px) {
+            padding: 10px;
+        }
+
+        .tab-pane {
+            form {
+                .fields-col {
+                    padding: 13px 0px 13px 24px;
+
+                    @media (max-width: 1024px) {
+                        padding: 0;
+                    }
+
+                    @media (max-width: 767px) {
+                        border: 0px solid #E2E2E2;
+
+                    }
+  
+                    & .row {
+
+                        @media (max-width: 767px) {
+                             margin: 0px;;
+    
+                        }
+
+                    }
+
+                    & .location {
+                        display: flex;
+                        width: 75%;
+                        gap:10px;
+                        align-items: center;
+                        padding-left: 24px;
+
+                        @media(max-width:1024px){
+
+                            padding-left: 7px;
+                            width: 70%;
+
+                        }
+
+                        @media(max-width:767px){
+
+                             width: 100%;
+                             padding: 13px 13px 13px 13px;
+                             border: 1px solid #E2E2E2;
+
+                        }
+                    }
+
+                    & .form-group {
+                        display: flex;
+                        width: 25%;
+                        border-right: 1px solid #E2E2E2;
+
+                        
+                        @media(max-width:1024px){
+
+                         
+                            width: 30%;
+
+                        }
+
+                        @media(max-width:767px){
+
+                           
+                            width: 100%;
+                            border-right: 0px solid #E2E2E2;
+                            margin:0px;
+                            padding: 0px 0px 12px 0px ;
+
+
+
+                        }
+
+                         & .radio-group {
+
+                            display: flex;
+                            width: 100%;
+                           
+                            @media(max-width:767px){
+                              gap:20px;
+                            }
+
+                            & .radio-inline {
+                                margin-bottom:0px;
+
+                                @media(max-width:1024px){
+                                    padding-left: 10px;
+                                    margin-top:0px;
+ 
+                                }
+
+                                @media(max-width:767px){
+                                    width:auto;
+                                    padding-left: 0px;
+                                   
+                                }
+                            }
+                         }
+                    }
+                }
+                label {
+                    font-family: var(--e-global-typography-241d6f4-font-family), Sans-serif;
+                    font-size: var(--e-global-typography-241d6f4-font-size);
+                    font-weight: var(--e-global-typography-241d6f4-font-weight);
+                    line-height: var(--e-global-typography-241d6f4-line-height);
+                    letter-spacing: var(--e-global-typography-241d6f4-letter-spacing);
+                    word-spacing: var(--e-global-typography-241d6f4-word-spacing);
+                    color: var(--e-global-color-fa98db2);
+                    width: 100%;
+                    margin-bottom: 1.8rem;
+                    display: block;
+                    text-transform: unset;
+                    letter-spacing: unset;
+
+                    @media (max-width: 1024px) {
+                        margin-top: 1em;
+                    }
+                }
+                select,
+                input {
+                    box-shadow: none;
+                    outline: 0;
+                }
+                input[type="text"] {
+                    width: 100%;
+                    padding: 0 0;
+                    border: 0;
+                    border-bottom: 0px solid c.$brand--secondary;
+                    border-radius: 0px;
+                    background: none;
+                    font-family: var(--e-global-typography-241d6f4-font-family), Sans-serif;
+                    font-size: var(--e-global-typography-241d6f4-font-size);
+                    font-weight: var(--e-global-typography-241d6f4-font-weight);
+                    line-height: var(--e-global-typography-241d6f4-line-height);
+                    letter-spacing: var(--e-global-typography-241d6f4-letter-spacing);
+                    word-spacing: var(--e-global-typography-241d6f4-word-spacing);
+                    color: var(--e-global-color-fa98db2);
+                    height: fit-content;
+                    
+
+                    &::placeholder {
+                  
+                    color: var(--e-global-color-fa98db2);
+                    }
+                }
+                .select-col {
+                    position: relative;
+
+                    svg {
+                        position: absolute;
+                        right: 1.1em;
+                        bottom: 1.3em;
+                        width: 10px;
+                        fill: c.$white;
+                    }
+                }
+                select {
+                    width: 100%;
+                    padding: 0.5em 0 1em 0;
+                    border: 0;
+                    border-radius: 0;
+                    background-image: none;
+                    background-color: transparent;
+                    font-size: 1.6rem;
+                    border-bottom: 1px solid c.$brand--secondary;
+                    color: c.$brand--secondary;
+                    position: relative;
+
+                    option {
+                        color: #333333;
+                    }
+                }
+                button {
+                    
+                    width: 100%;
+                    height: 100%;
+                    border: 0;
+                    border-radius: 8px;
+                    padding: 0;
+                    background: var(--e-global-color-accent);
+                    color: c.$white;
+
+                    svg {
+                        width: 18px;
+                        fill: transparent;
+
+                        & path {
+
+                        stroke: white;
+                        }
+                    }
+                    span {
+                        font-family: var(--e-global-typography-241d6f4-font-family), Sans-serif;
+                        font-size: var(--e-global-typography-241d6f4-font-size);
+                        font-weight: var(--e-global-typography-241d6f4-font-weight);
+                        line-height: var(--e-global-typography-241d6f4-line-height);
+                        letter-spacing: var(--e-global-typography-241d6f4-letter-spacing);
+                        word-spacing: var(--e-global-typography-241d6f4-word-spacing);
+                        text-transform: none;
+                    }
+
+                    &:hover {
+                        background: var(--e-global-color-primary);
+                    }
+
+                    @media (max-width: 1024px) {
+                        margin-top: 0px;
+                    }
+                   
+                    @media (max-width: 767px) {
+                    margin-top: 12px;
+                    height: 51px;
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #search-form--tabbed {
     .nav-tabs {
         border: none;
@@ -241,15 +577,27 @@
 }
 
 .search-hero {
-    background-color: c.$brand--primary;
+    position: relative; // Ensure the pseudo-element is positioned correctly
+    background-image: url('/wp-content/uploads/2024/07/001_9383.jpg');
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 65vh;
-    @media (max-width: 991px) {
-        height: 60vh;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); // Black with 0.5 opacity
+        z-index: 1; // Make sure the overlay is above the background but below the content
     }
+
     @media (max-width: 767px) {
         justify-content: start !important;
     }
@@ -261,6 +609,7 @@
             width: 250px;
         }
     }
+
     .search-hero__heading {
         font-weight: 800;
         letter-spacing: 0.2rem;
@@ -276,16 +625,22 @@
             margin: 0;
         }
     }
+
     .total-posts__count {
-        color: c.$brand--secondary;
+        color: $brand--secondary; // Ensure this variable is defined elsewhere in your SCSS
         font-size: 2.3rem;
         font-weight: 400;
         letter-spacing: 0.1rem;
+
         @media (max-width: 767px) {
             font-size: 1.45rem;
         }
     }
 }
+
+
+
+
 
 .styled-select {
     select {

@@ -10,7 +10,8 @@
 @use "../abstracts/fonts" as t;
 
 .form__main-search {
-    margin-top: -120px;
+    margin-top: 120px;
+    z-index: 1;
 
     // Map search styles
     #form__map-search {

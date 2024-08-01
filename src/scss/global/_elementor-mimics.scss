@@ -11,3 +11,8 @@
     max-width: 1140px;
     margin: 0 auto;
 }
+
+#pills-sale > form > div.advanced__search-submit.advanced__search-submit-sm > button,
+#pills-let > form > div.advanced__search-submit.advanced__search-submit-sm > button {
+    display: none;
+}

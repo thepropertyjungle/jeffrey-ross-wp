@@ -264,4 +264,9 @@
 
 @include('partials/related-properties')
 
+
+
+<?php echo do_shortcode('[elementor-template id="2185"]'); ?>
+
+
 @include('debug/debug')
