@@ -46,6 +46,38 @@
     }
 
 
+//change height of description on property single
+document.addEventListener('DOMContentLoaded', function() {
+    const description = document.querySelector('.description');
+    const readButton = document.querySelector('.read');
+
+    readButton.addEventListener('click', function() {
+      description.classList.toggle('height');
+    });
+  });
+
+
+    $(document).ready(function(){
+        $('.slider').slick({
+          // Add your Slick options here
+          
+          
+          slidesToShow: 1,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          arrows: true,
+          prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+          nextArrow: '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+          responsive: [
+            {
+              breakpoint: 1024, // Adjust the breakpoint as needed
+              settings: {
+                slidesToShow: 1 // Change slidesToShow to 1 on mobile devices
+              }
+            }
+          ]
+        });
+    });
 
 
     $(document).ready(function() {

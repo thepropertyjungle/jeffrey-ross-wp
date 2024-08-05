@@ -3,14 +3,14 @@
 
 .brand-primary-background {
     background-color: c.$brand--primary;
-    min-height: 61rem;
-    padding: 28rem 0 30rem;
+    min-height: 250px;
+    
     @media (max-width: 1024px) {
         /*margin-top: -16em;*/
-        padding: 17.1rem 0 18.8rem;
+       
     }
     @media (max-width: 767px) {
-        padding: 0 0 10rem;
+        
         height: auto;
         min-height: initial;
         margin-top: 0rem !important;
@@ -281,11 +281,12 @@
 
 // SIDE PROPERTY ENQUIRY BOX
 .enquiry-box {
-    background-color: c.$brand--primary;
+    background-color: #c5cfd9;
     margin-bottom: 3rem;
-    padding: 3.7rem 2rem 3.7rem 4rem;
-    border-radius: 0;
+    padding: 3.7rem 2rem 3.7rem 2rem;
+    border-radius: 8px;
     z-index: 1;
+    color:#162d3a ;
 
     @media (max-width: 1024px) {
         position: initial;
@@ -480,4 +481,194 @@
             }
         }
     }
+}
+
+
+
+.single-tpj_properties {
+
+    .property-grid__type p {
+        font-weight: 600;
+    }
+
+
+    .property-grid__price {
+        font-family: var(--e-global-typography-470454f-font-family), Sans-serif;
+        font-size: var(--e-global-typography-470454f-font-size);
+        font-weight: var(--e-global-typography-470454f-font-weight);
+        text-transform: var(--e-global-typography-470454f-text-transform);
+        line-height: var(--e-global-typography-470454f-line-height);
+        letter-spacing: var(--e-global-typography-470454f-letter-spacing);
+        word-spacing: var(--e-global-typography-470454f-word-spacing);
+    }
+
+    .property-grid__address {
+        font-weight: 600;
+        padding: 10px 0px;
+    }
+
+    .feature {
+        padding-bottom:20px;
+    }
+
+    .buttons {
+
+        gap:20px; 
+
+        .first {
+            color: white;
+            background-color: #cd3301;
+            border: #cd3301;
+            padding: 13px 22px;
+            font-family: var(--e-global-typography-7c36299-font-family), Sans-serif;
+    font-size: var(--e-global-typography-7c36299-font-size);
+    font-weight: var(--e-global-typography-7c36299-font-weight);
+    line-height: var(--e-global-typography-7c36299-line-height);
+    letter-spacing: var(--e-global-typography-7c36299-letter-spacing);
+    word-spacing: var(--e-global-typography-7c36299-word-spacing);
+        }
+        
+        .second {
+            color: #162d3a;
+            background-color: white;
+            border: white;
+            padding: 13px 22px;
+            font-family: var(--e-global-typography-7c36299-font-family), Sans-serif;
+    font-size: var(--e-global-typography-7c36299-font-size);
+    font-weight: var(--e-global-typography-7c36299-font-weight);
+    line-height: var(--e-global-typography-7c36299-line-height);
+    letter-spacing: var(--e-global-typography-7c36299-letter-spacing);
+    word-spacing: var(--e-global-typography-7c36299-word-spacing);
+        }
+    }
+
+
+
+
+    .img img {
+        width:820px;
+    }
+
+
+
+    .morg-calc {
+    background-color:#fce8df ;
+            #mortgage_calculator {
+
+            gap: 15px;
+            display: grid;
+            padding-bottom: 15px;
+            }
+
+    }
+
+
+
+
+
+    
+.slick-initialized .slick-slide, .slick-list, .slick-slide img, .slick-slider, .slick-track, .slick-vertical .slick-slide {
+    display: flex;
+}
+
+
+.slick-slide {
+    padding: 0px 10px;
+    height: 600px; /* Set the height of the slides */
+    display: flex; /* Center the content */
+    align-items: center; /* Center the content vertically */
+    justify-content: center; /* Center the content horizontally */
+    overflow: hidden; /* Hide overflow */
+
+
+
+    & img {
+
+        border-radius:8px;
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+    }
+}
+
+.slick-prev {
+  
+        padding: 0px;
+        position: absolute;
+        left: 30px;
+        bottom: 50%;
+        color: #0000004d;
+        border-color: white;
+        border-radius: 100%;
+        z-index: 2;
+        background: white;
+        width: 50px;
+        height: 50px;
+    
+
+    &:focus,
+    &:hover {
+
+        background-color: var(--e-global-color-primary);
+        border-color: var(--e-global-color-primary);
+    }
+
+    @media (max-width:1024px) { 
+
+        right: 160px;
+        z-index: 2;
+
+    }
+
+    
+   
+
+}
+
+.slick-next {
+    padding: 0px;
+    position: absolute;
+    right: 30px;
+    bottom: 50%;
+    color: #0000004d;
+    border-color: white;
+    border-radius: 100%;
+    z-index: 2;
+    background: white;
+    width: 50px;
+    height: 50px;
+ &:focus,
+ &:hover {
+
+    background-color: var(--e-global-color-primary);
+    border-color: var(--e-global-color-primary);
+}
+
+ @media (max-width:1024px) { 
+
+    right: 105px;
+    z-index: 2;
+
+}
+
+
+
+}
+
+
+
+
+.tab-headings {
+    padding: 20px 0px;
+    color:#cd3301;
+}
+
+
+.height {
+                    
+    height: 350px;
+    overflow: hidden;
+
+}
+
 }

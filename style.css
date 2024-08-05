@@ -1011,19 +1011,8 @@ blockquote:last-child {
   position: relative;
 }
 .propertySwiper__wrapper .mySwiper2 {
-  margin-top: -18em;
   margin-bottom: 0.5em;
   position: relative;
-}
-@media (max-width: 1024px) {
-  .propertySwiper__wrapper .mySwiper2 {
-    margin-top: -15em;
-  }
-}
-@media (max-width: 767px) {
-  .propertySwiper__wrapper .mySwiper2 {
-    margin-top: -4em;
-  }
 }
 .propertySwiper__wrapper .mySwiper2 .swiper-wrapper .swiper-slide {
   max-height: 710px;
@@ -2047,6 +2036,10 @@ blockquote:last-child {
   margin-bottom: 7px;
 }
 
+.single-tpj_properties .home .property__rooms {
+  position: inherit;
+}
+
 .property__corner-flash {
   background: #c83d26;
   color: white;
@@ -2078,18 +2071,15 @@ blockquote:last-child {
 }
 .brand-primary-background {
   background-color: var(--e-global-color-primary);
-  min-height: 61rem;
-  padding: 28rem 0 30rem;
+  min-height: 250px;
 }
 @media (max-width: 1024px) {
   .brand-primary-background {
     /*margin-top: -16em;*/
-    padding: 17.1rem 0 18.8rem;
   }
 }
 @media (max-width: 767px) {
   .brand-primary-background {
-    padding: 0 0 10rem;
     height: auto;
     min-height: initial;
     margin-top: 0rem !important;
@@ -2364,11 +2354,12 @@ blockquote:last-child {
 }
 
 .enquiry-box {
-  background-color: var(--e-global-color-primary);
+  background-color: #c5cfd9;
   margin-bottom: 3rem;
-  padding: 3.7rem 2rem 3.7rem 4rem;
-  border-radius: 0;
+  padding: 3.7rem 2rem 3.7rem 2rem;
+  border-radius: 8px;
   z-index: 1;
+  color: #162d3a;
 }
 @media (max-width: 1024px) {
   .enquiry-box {
@@ -2553,6 +2544,145 @@ blockquote:last-child {
 }
 .appraisal-box .box__actions a:hover, .appraisal-box .box__actions a:focus, .appraisal-box .box__actions a:active {
   color: var(--e-global-color-accent);
+}
+
+.single-tpj_properties .property-grid__type p {
+  font-weight: 600;
+}
+.single-tpj_properties .property-grid__price {
+  font-family: var(--e-global-typography-470454f-font-family), Sans-serif;
+  font-size: var(--e-global-typography-470454f-font-size);
+  font-weight: var(--e-global-typography-470454f-font-weight);
+  text-transform: var(--e-global-typography-470454f-text-transform);
+  line-height: var(--e-global-typography-470454f-line-height);
+  letter-spacing: var(--e-global-typography-470454f-letter-spacing);
+  word-spacing: var(--e-global-typography-470454f-word-spacing);
+}
+.single-tpj_properties .property-grid__address {
+  font-weight: 600;
+  padding: 10px 0px;
+}
+.single-tpj_properties .feature {
+  padding-bottom: 20px;
+}
+.single-tpj_properties .buttons {
+  gap: 20px;
+}
+.single-tpj_properties .buttons .first {
+  color: white;
+  background-color: #cd3301;
+  border: #cd3301;
+  padding: 13px 22px;
+  font-family: var(--e-global-typography-7c36299-font-family), Sans-serif;
+  font-size: var(--e-global-typography-7c36299-font-size);
+  font-weight: var(--e-global-typography-7c36299-font-weight);
+  line-height: var(--e-global-typography-7c36299-line-height);
+  letter-spacing: var(--e-global-typography-7c36299-letter-spacing);
+  word-spacing: var(--e-global-typography-7c36299-word-spacing);
+}
+.single-tpj_properties .buttons .second {
+  color: #162d3a;
+  background-color: white;
+  border: white;
+  padding: 13px 22px;
+  font-family: var(--e-global-typography-7c36299-font-family), Sans-serif;
+  font-size: var(--e-global-typography-7c36299-font-size);
+  font-weight: var(--e-global-typography-7c36299-font-weight);
+  line-height: var(--e-global-typography-7c36299-line-height);
+  letter-spacing: var(--e-global-typography-7c36299-letter-spacing);
+  word-spacing: var(--e-global-typography-7c36299-word-spacing);
+}
+.single-tpj_properties .img img {
+  width: 820px;
+}
+.single-tpj_properties .morg-calc {
+  background-color: #fce8df;
+}
+.single-tpj_properties .morg-calc #mortgage_calculator {
+  gap: 15px;
+  display: -ms-grid;
+  display: grid;
+  padding-bottom: 15px;
+}
+.single-tpj_properties .slick-initialized .slick-slide, .single-tpj_properties .slick-list, .single-tpj_properties .slick-slide img, .single-tpj_properties .slick-slider, .single-tpj_properties .slick-track, .single-tpj_properties .slick-vertical .slick-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.single-tpj_properties .slick-slide {
+  padding: 0px 10px;
+  height: 600px; /* Set the height of the slides */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; /* Center the content */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; /* Center the content vertically */
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; /* Center the content horizontally */
+  overflow: hidden; /* Hide overflow */
+}
+.single-tpj_properties .slick-slide img {
+  border-radius: 8px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+.single-tpj_properties .slick-prev {
+  padding: 0px;
+  position: absolute;
+  left: 30px;
+  bottom: 50%;
+  color: rgba(0, 0, 0, 0.3019607843);
+  border-color: white;
+  border-radius: 100%;
+  z-index: 2;
+  background: white;
+  width: 50px;
+  height: 50px;
+}
+.single-tpj_properties .slick-prev:focus, .single-tpj_properties .slick-prev:hover {
+  background-color: var(--e-global-color-primary);
+  border-color: var(--e-global-color-primary);
+}
+@media (max-width: 1024px) {
+  .single-tpj_properties .slick-prev {
+    right: 160px;
+    z-index: 2;
+  }
+}
+.single-tpj_properties .slick-next {
+  padding: 0px;
+  position: absolute;
+  right: 30px;
+  bottom: 50%;
+  color: rgba(0, 0, 0, 0.3019607843);
+  border-color: white;
+  border-radius: 100%;
+  z-index: 2;
+  background: white;
+  width: 50px;
+  height: 50px;
+}
+.single-tpj_properties .slick-next:focus, .single-tpj_properties .slick-next:hover {
+  background-color: var(--e-global-color-primary);
+  border-color: var(--e-global-color-primary);
+}
+@media (max-width: 1024px) {
+  .single-tpj_properties .slick-next {
+    right: 105px;
+    z-index: 2;
+  }
+}
+.single-tpj_properties .tab-headings {
+  padding: 20px 0px;
+  color: #cd3301;
+}
+.single-tpj_properties .height {
+  height: 350px;
+  overflow: hidden;
 }
 
 @font-face {
