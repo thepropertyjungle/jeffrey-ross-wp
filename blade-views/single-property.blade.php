@@ -39,13 +39,14 @@ $propertyImages = $property['images'] ?? [];
                     <button class="nav-link active" id="nav-overview-tab" data-bs-toggle="tab" data-bs-target="#nav-Description" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
                         Overview
                     </button>
-                    <button class="nav-link" id="nav-map-tab" data-bs-toggle="tab" data-bs-target="#nav-Map" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
-                        Location
-                    </button>
+                    <a class="nav-link" id="nav-map-tab"  href="#nav-Map" >
+                    Location
+                    </a>
                     @if(!empty($property['floor_plans']))
-                    <button class="nav-link" id="nav-floorplan-tab" data-bs-toggle="tab" data-bs-target="#nav-Floorplan" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
-                        Floorplan
-                    </button>
+                    <a class="nav-link" id="nav-floorplan-tab"  href="#nav-Floorplan" >
+                     Floorplan
+                    </a>
+
                     @endif
                     @if(!empty($property['epc_doc_urls']) || !empty($property['epc_urls']))
                         @if(!empty($property['epc_doc_urls']))

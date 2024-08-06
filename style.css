@@ -2684,6 +2684,12 @@ blockquote:last-child {
   height: 350px;
   overflow: hidden;
 }
+.single-tpj_properties .read {
+  padding-top: 20px;
+}
+.single-tpj_properties .read p {
+  font-weight: 600;
+}
 
 @font-face {
   font-family: "Azo";
