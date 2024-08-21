@@ -25,6 +25,11 @@
     }
   }
 
+
+  .home #swiperHomeNext, .home #swiperHomePrev {
+    top: -3.1rem;
+  }
+
   #swiperHomeNext {
   right: 1.5em;
   left:unset;
