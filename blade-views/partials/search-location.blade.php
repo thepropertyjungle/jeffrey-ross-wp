@@ -6,7 +6,7 @@
         <div class="tab-pane fade show active" id="sales-tab-pane" role="tabpanel" aria-labelledby="sales-tab" tabindex="0">
             <form data-component="SearchForm" data-prevent-default-submit="false"
                 data-subscribe-submit-to-event="SEARCH_CORE"
-                action="{{ $global_options['dynamic_options']['search_results_list']['permalink'] ?? '' }}"
+                action="{{ $global_options['dynamic_options']['search_results_grid']['permalink'] ?? '' }}"
                 class="container-fluid">
                 <input data-component="FormItem" type="hidden" name="instruction_type" value="sale">
                 <input data-component="FormItem" type="hidden" name="showstc" value="on">

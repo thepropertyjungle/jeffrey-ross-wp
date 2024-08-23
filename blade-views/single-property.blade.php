@@ -66,6 +66,23 @@ $propertyImages = $property['images'] ?? [];
                         </a>
                         @endforeach
                     @endif
+
+
+
+
+
+                    @if(!empty($property['brochures']))
+                 
+                        @if(is_array($property['brochures'] ?? false))
+                        @foreach ($property['brochures'] as $property_brochure)
+                        <a href="{{ $property_brochure['media_url'] ?? '' }}" target="_blank" class="nav-link" >
+                            Download Brochure
+                        </a>  
+                        
+                        @endforeach
+                        @endif                    
+                    
+                    @endif
                 </div>
             </nav>        
         </div>
@@ -257,6 +274,25 @@ $propertyImages = $property['images'] ?? [];
 
     <!-- stamp -->
 
+    <div class="enquiry-box advice ">
+              
+  
+
+              <div class="d-flex buttons p-3" >
+                
+               
+              <?php echo do_shortcode('[stamp_duty_calculator]'); ?>
+
+
+
+
+
+
+
+              </div>
+
+
+    </div>
 
                    
     <!-- stamp -->
@@ -311,21 +347,7 @@ $propertyImages = $property['images'] ?? [];
                 
                 
                 
-                    <a class="viewing-request-btn" href="/contact/arrange-viewing/?office_id={{ $office_id }}&advert_address={{ $advert_address }}&advert_summary={{ $advert_summary }}&advert_image={{ $advert_image }}&advert_postcode{{ $advert_postcode }}=&advert_url={{ $advert_url }}&type=@if($property['instruction_type'] == 'Sale') sale @elseif($property['instruction_type'] == 'Letting') let @endif">or <span>Book a viewing</span></a>
-                <div class="enquiry-box__cta">
-                    @if(!empty($property['brochures']))
-                    <div class="brochure">
-                        @if(is_array($property['brochures'] ?? false))
-                        @foreach ($property['brochures'] as $property_brochure)
-                        <a href="{{ $property_brochure['media_url'] ?? '' }}" class="brochure-download">
-                            Download Brochure
-                        </a>                    
-                        @endforeach
-                        @endif                    
-                    </div>
-                    @endif
-                   
-                </div>
+                    
             </div>
                   
         </div>

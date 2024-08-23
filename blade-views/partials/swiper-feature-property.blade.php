@@ -13,11 +13,7 @@
             <img src="" alt="Awaiting Images for {{ $property['Address']['display_address'] }}">
         @endif
     </div>
-        @if ($property['availability'] !== 'Available')
-        <div class="availability">
-            <p>{{ $property['availability'] === 'SSTC' ? 'Sold STC' : $property['availability'] }}</p>
-        </div>
-        @endif
+       
         <div class="property-grid__meta">
                 <div class="property-grid__type">
                     <p>

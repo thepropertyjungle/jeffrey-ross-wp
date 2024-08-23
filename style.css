@@ -1209,6 +1209,7 @@ blockquote:last-child {
 
 #stamp-duty-form .form-check {
   margin-bottom: 10px !important;
+  padding-left: 1.5em !important;
 }
 
 .form-check-input[type=checkbox] {
@@ -3290,7 +3291,7 @@ h4.property-search-title {
 @media (max-width: 1024px) {
   #search-form--tabbed.home-search .tab-content .tab-pane form .fields-col .location {
     padding-left: 7px;
-    width: 70%;
+    width: 65%;
   }
 }
 @media (max-width: 767px) {
@@ -3309,7 +3310,7 @@ h4.property-search-title {
 }
 @media (max-width: 1024px) {
   #search-form--tabbed.home-search .tab-content .tab-pane form .fields-col .form-group {
-    width: 30%;
+    width: 35%;
   }
 }
 @media (max-width: 767px) {
@@ -3799,6 +3800,130 @@ h4.property-search-title {
   -webkit-box-shadow: none;
           box-shadow: none;
   text-transform: uppercase;
+}
+
+.home-search.prop {
+  z-index: 1;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.home-search.prop .tab-content {
+  width: 100%;
+  background-color: #cfd7d8 !important;
+  padding: 20px !important;
+}
+@media (max-width: 1024px) {
+  .home-search.prop .tab-content {
+    margin: 0px 24px;
+  }
+}
+@media (max-width: 767px) {
+  .home-search.prop .tab-content {
+    margin: 0px 16px;
+  }
+}
+.home-search.prop .tab-content .tab-pane form .fields-col {
+  padding-left: 15px;
+}
+@media (max-width: 767px) {
+  .home-search.prop .tab-content .tab-pane form .fields-col {
+    padding-left: 0px !important;
+  }
+}
+.home-search.prop .tab-content .tab-pane form .collapseAdvanced {
+  background: white;
+  border-radius: 8px;
+  padding: 0px 0px 0px 0px !important;
+  margin: 15px 0px 0px 0px;
+}
+.home-search.prop .tab-content .tab-pane form .collapseAdvanced .card-body {
+  border-radius: 8px;
+}
+.home-search.prop .tab-content .tab-pane form .collapseAdvanced .card-body .lettings-prices {
+  padding-left: 30px;
+}
+.home-search.prop .tab-content .tab-pane form .collapseAdvanced .card-body input {
+  margin-left: 3px;
+}
+.home-search.prop .tab-content .tab-pane form .fields-col2 {
+  padding: 15px 0px 0px 0px !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+}
+@media (max-width: 1024px) {
+  .home-search.prop .tab-content .tab-pane form .fields-col2 {
+    gap: 10px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 2fr 10px 2fr;
+    grid-template-columns: repeat(2, 2fr);
+  }
+}
+.home-search.prop .tab-content .tab-pane form .fields-col2 .row {
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+}
+.home-search.prop .tab-content .tab-pane form .fields-col2 select {
+  background-color: white !important;
+  border-radius: 8px !important;
+  padding: 8px !important;
+  color: #1b313e !important;
+  border-bottom: 0px solid !important;
+}
+.home-search.prop .tab-content .tab-pane form .fields-col {
+  padding-left: 15px !important;
+}
+@media (max-width: 767px) {
+  .home-search.prop .tab-content .tab-pane form .fields-col {
+    padding-left: 0px !important;
+  }
+}
+@media (max-width: 767px) {
+  .home-search.prop .tab-content .tab-pane form .fields-col .form-group {
+    padding: 12px 0px 12px 12px !important;
+  }
+}
+.home-search.prop .tab-content .tab-pane form .fields-col .row {
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+}
+.home-search.prop .tab-content .tab-pane form label {
+  margin-bottom: 0px !important;
+}
+.home-search.prop .tab-content .tab-pane form .advanced__collapse-btn {
+  background: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-family: var(--e-global-typography-241d6f4-font-family), Sans-serif;
+  font-size: var(--e-global-typography-241d6f4-font-size);
+  font-weight: var(--e-global-typography-241d6f4-font-weight);
+  line-height: var(--e-global-typography-241d6f4-line-height);
+  letter-spacing: var(--e-global-typography-241d6f4-letter-spacing);
+  word-spacing: var(--e-global-typography-241d6f4-word-spacing);
+  color: var(--e-global-color-fa98db2);
+}
+
+.search .search-hero {
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
 }
 
 #search-map-results {

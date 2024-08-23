@@ -133,7 +133,7 @@
                         @media(max-width:1024px){
 
                             padding-left: 7px;
-                            width: 70%;
+                            width: 65%;
 
                         }
 
@@ -155,7 +155,7 @@
                         @media(max-width:1024px){
 
                          
-                            width: 30%;
+                            width: 35%;
 
                         }
 
@@ -654,4 +654,173 @@
         box-shadow: none;
         text-transform: uppercase;
     }
+}
+
+
+
+
+
+
+.home-search.prop {
+
+z-index: 1;
+width: 100%;
+justify-content: center;
+display: flex;
+
+        & .tab-content {
+
+            width:100%;
+            background-color:#cfd7d8 !important;
+            padding: 20px !important;
+
+            @media(max-width:1024px){
+
+                margin: 0px 24px;
+            
+            
+            }
+
+            @media(max-width:767px){
+
+                margin: 0px 16px;
+            
+            
+            }
+
+
+            & .tab-pane form {
+
+                & .fields-col {
+                  
+                    padding-left:15px ;
+
+                    @media(max-width:767px){
+
+                    padding-left:0px !important;
+                    
+                    }
+
+
+                } 
+
+                & .collapseAdvanced {
+                    background: white;
+                    border-radius: 8px;
+                    padding: 0px 0px 0px 0px !important;
+                    margin: 15px 0px 0px 0px;
+
+
+                    & .card-body {
+                        border-radius: 8px;
+
+                        & .lettings-prices {
+                            padding-left: 30px;
+                        }
+
+                        & input {
+                            margin-left:3px;
+                        }
+                    }
+                }
+            
+                & .fields-col2 {
+                    padding: 15px 0px 0px 0px !important;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: end;
+
+                    @media(max-width:1024px){
+
+                        gap: 10px;
+                        display: grid;
+                        grid-template-columns: repeat(2, 2fr);
+                    
+                    }
+
+                    & .row {
+                        width:100%;
+                        background: white;
+                        border-radius: 8px;
+                    }
+
+                    & select {
+                        background-color: white !important;
+                        border-radius: 8px !important;
+                        padding: 8px !important;
+                        color: #1b313e !important;
+                        border-bottom:0px solid !important;
+                    }
+
+
+                
+                }
+
+                & .fields-col {
+                  
+                padding-left:15px !important;
+
+
+                @media(max-width:767px){
+
+                    padding-left:0px !important;
+                    
+                } 
+
+
+
+                    & .form-group {
+                       
+ 
+                        @media(max-width:767px){
+
+                            padding: 12px 0px 12px 12px !important;
+                            
+                        } 
+                    
+                    }
+
+
+                    & .row {
+                        width:100%;
+                        background: white;
+                        border-radius: 8px;
+                    }
+
+
+                }
+
+
+
+                & label {
+                    margin-bottom:0px !important;
+                }
+
+
+                & .advanced__collapse-btn {
+                    background:white;
+                    padding: 10px 20px;
+                    border-radius: 8px;
+                    height: fit-content;
+                    font-family: var(--e-global-typography-241d6f4-font-family), Sans-serif;
+                    font-size: var(--e-global-typography-241d6f4-font-size);
+                    font-weight: var(--e-global-typography-241d6f4-font-weight);
+                    line-height: var(--e-global-typography-241d6f4-line-height);
+                    letter-spacing: var(--e-global-typography-241d6f4-letter-spacing);
+                    word-spacing: var(--e-global-typography-241d6f4-word-spacing);
+                    color: var(--e-global-color-fa98db2);
+                }
+            }    
+
+        }
+
+
+
+}
+
+
+
+
+.search .search-hero {
+    justify-content: center !important;
 }
