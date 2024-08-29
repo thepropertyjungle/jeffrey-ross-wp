@@ -84,49 +84,49 @@
 
 
                     <!-- Sales Min Price Dropdown -->
-@if (($_GET['instruction_type'] ?? '') === 'sale')
-    <div class="collapse__search-selects">
+ 
+    <div class="collapse__search-selects sales-prices">
         <label for="minprice-sales">Min Price</label>
         <select data-component="FormItem" name="minprice" id="minprice-sales">
             <option value="" selected disabled>Min Price</option>
             @include('partials/search-prices', ['sales' => 'true'])
         </select>
     </div>
-@endif
+ 
 
 <!-- Lettings Min Price Dropdown -->
-@if (($_GET['instruction_type'] ?? '') === 'letting')
-    <div class="collapse__search-selects">
+ 
+    <div class="collapse__search-selects lettings-prices">
         <label for="minprice-lettings">Min Price</label>
         <select data-component="FormItem" name="minprice" id="minprice-lettings">
             <option value="" selected disabled>Min Price</option>
             @include('partials/search-prices', ['lettings' => 'true'])
         </select>
     </div>
-@endif
+ 
 
 
                   <!-- Sales Max Price Dropdown -->
-@if (($_GET['instruction_type'] ?? '') === 'sale')
-    <div class="advanced__search-selects">
+
+    <div class="advanced__search-selects sales-prices">
         <label for="maxprice-sales">Max Price</label>
         <select data-component="FormItem" name="maxprice" id="maxprice-sales">
             <option value="" selected disabled>Max Price</option>
             @include('partials/search-prices', ['sales' => 'true'])
         </select>
     </div>
-@endif
+
 
 <!-- Lettings Max Price Dropdown -->
-@if (($_GET['instruction_type'] ?? '') === 'letting')
-    <div class="advanced__search-selects">
+
+    <div class="advanced__search-selects  lettings-prices">
         <label for="maxprice-lettings">Max Price</label>
         <select data-component="FormItem" name="maxprice" id="maxprice-lettings">
             <option value="" selected disabled>Max Price</option>
             @include('partials/search-prices', ['lettings' => 'true'])
         </select>
     </div>
-@endif
+
 
 
 

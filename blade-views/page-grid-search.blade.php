@@ -18,33 +18,30 @@
             </div>
         </div>
     
-    <div class="col-sm-12 col-md-12 d-flex justify-content-end pb-5 pb-md-0">
-            <label for="orderby" class="sr-only">Highest or Lowest Price</label>
-            <span class="styled-select">
-                <select
-                    data-component="FormItem"
-                    
-                    @if (($_GET['instruction_type'] ?? '') === 'sale')
+        <div class="col-sm-12 col-md-12 d-flex justify-content-end pb-5 pb-md-0">
+    <label for="orderby" class="sr-only">Highest or Lowest Price</label>
+    <span class="styled-select">
+        <select
+            data-component="FormItem"
+            name="orderby"
+            id="orderby"
+            @if (($_GET['instruction_type'] ?? '') === 'sale')
+                data-form-url="{{ $global_options['dynamic_options']['search_results_grid']['permalink'] ?? '' }}"
+                data-onvaluechange-trigger-events='["ORDER_BY_CHANGE_EVENT", "SALE_FORM_SUBMIT_EVENT"]'
+            @elseif (($_GET['instruction_type'] ?? '') === 'letting')
+                data-form-url="{{ $global_options['dynamic_options']['search_results_grid']['permalink'] ?? '' }}"
+                data-onvaluechange-trigger-events='["ORDER_BY_CHANGE_EVENT", "LETTING_FORM_SUBMIT_EVENT"]'
+            @endif
+        >
+            <option value="" selected disabled>Order by price:</option>
+            <option value="price_desc">Highest Price</option>
+            <option value="price_asc">Lowest Price</option>
+        </select>
+    </span>            
+</div>
 
-                    data-form-url="{{ $global_options['dynamic_options']['search_results_grid']['permalink'] ?? '' }}"
-                    data-onvaluechange-trigger-events='["ORDER_BY_CHANGE_EVENT", "SALE_FORM_SUBMIT_EVENT"]'
 
-                    @elseif (($_GET['instruction_type'] ?? '') === 'letting')
-                    
-                    data-form-url="{{ $global_options['dynamic_options']['search_results_grid']['permalink'] ?? '' }}"
-                    data-onvaluechange-trigger-events='["ORDER_BY_CHANGE_EVENT", "LETTING_FORM_SUBMIT_EVENT"]'
-                    
-                    @endif
 
-                    name="orderby"
-                    id="orderby"
-                >
-                    <option value="" selected disabled>Order by price:</option>
-                    <option value="price_desc">Highest Price</option>
-                    <option value="price_asc">Lowest Price</option>
-                </select>
-            </span>            
-        </div>
         
     </div>
     @if(count($properties) > 0)
