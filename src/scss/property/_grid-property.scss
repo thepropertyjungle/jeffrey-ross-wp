@@ -143,7 +143,7 @@
             font-weight: 800;
             line-height: 1em;
             color: c.$brand--primary;
-            text-transform: uppercase;
+           
             margin-right: 8px;
 
             svg {
@@ -183,4 +183,10 @@
             }
         }
     }
+}
+
+
+
+.search .search-hero__heading {
+    font-weight: 700;
 }

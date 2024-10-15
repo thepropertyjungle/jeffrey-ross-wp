@@ -16,3 +16,28 @@
 #pills-let > form > div.advanced__search-submit.advanced__search-submit-sm > button {
     display: none;
 }
+
+
+
+
+.full-menu .elementor-nav-menu--main .elementor-nav-menu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+    gap: 10px; /* Optional: Adds space between items */
+}
+
+
+
+.elementor-kit-5 button, .elementor-kit-5 input[type="button"], .elementor-kit-5 input[type="submit"], .elementor-kit-5 .elementor-button { 
+    text-transform: inherit;
+
+
+}
+
+.navy .stickyheader {
+    background-color: var(--e-global-color-primary) !important;
+}
+
+.stickyheader .red a {
+    color: #cd3301 !important;
+}

@@ -24,16 +24,20 @@
                                     <label class="radio-inline">
                                         <input type="radio" name="instruction_type" value="sale" 
                                             @if (($_GET['instruction_type'] ?? '') === 'sale') checked @endif 
-                                            data-activate=".sales-prices"> Buying
+                                            data-activate=".sales-prices"> Buy
                                     </label>
                                     <label class="radio-inline">
                                         <input type="radio" name="instruction_type" value="letting" 
                                             @if (($_GET['instruction_type'] ?? '') === 'letting') checked @endif 
-                                            data-activate=".lettings-prices"> Renting
+                                            data-activate=".lettings-prices"> Rent
                                     </label>
                                 </div>
                             </div>
                             <div class="location">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<path d="M19.5 10.5C19.5 17.6421 12 21.75 12 21.75C12 21.75 4.5 17.6421 4.5 10.5C4.5 6.35786 7.85786 3 12 3C16.1421 3 19.5 6.35786 19.5 10.5Z" fill="#0A1A3F" stroke="#0A1A3F" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15 10.5C15 12.1569 13.6569 13.5 12 13.5C10.3431 13.5 9 12.1569 9 10.5C9 8.84315 10.3431 7.5 12 7.5C13.6569 7.5 15 8.84315 15 10.5Z" fill="white"/>
+</svg>
                         
                                 <input data-component="FormItem" type="text" name="address_keyword"
                                     id="address_keyword-sales" class="form-control"

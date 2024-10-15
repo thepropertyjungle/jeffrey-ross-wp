@@ -119,3 +119,24 @@ function hello_elementor_child_scripts_styles() {
 }
 
 add_action( 'wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20 );
+
+
+
+
+// Function to add class to body based on ACF true/false field
+function add_home_class_to_body() {
+    // Check if ACF function exists (to avoid errors if ACF is not active)
+    if (function_exists('get_field')) {
+        // Get the value of the ACF true/false field
+        $is_header = get_field('navy_header');
+
+        // Add 'navy' class to body if ACF field is true
+        if ($is_header) {
+            add_filter('body_class', function($classes) {
+                $classes[] = 'navy';
+                return $classes;
+            });
+        }
+    }
+}
+add_action('wp_head', 'add_home_class_to_body');

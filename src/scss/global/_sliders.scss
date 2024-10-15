@@ -27,7 +27,7 @@
 
 
   .home #swiperHomeNext, .home #swiperHomePrev {
-    top: -3.1rem;
+    top: 1.9rem;
   }
 
   #swiperHomeNext {
@@ -229,4 +229,5 @@
 
   gap:10px;
   display: flex;
+  font-family: var(--e-global-typography-text-font-family), Sans-serif;
 }

@@ -13,93 +13,57 @@
     ])
 --}}
 
+
+
 @if($paginate['hasPagination'] ?? false)
-    @if(isset($dropdown) && $dropdown)
-    <nav aria-label="Search Results Navigation">
-        <ul class="pagination">
-            {{-- Render first page link if available --}}
-            @isset($paginate['firstPageUrl'])
-                <li class='page-item'>
-                    <a href="{{ $paginate['firstPageUrl'] }}" class='page-link' aria-label="First Page">&laquo;</a>
-                </li>
-            @endisset
+<nav aria-label="Search Results Navigation">
+    <div class="pagination-thumbs  justify-content-between align-items-center">
 
-            {{-- Render previous page link if available --}}
-            @isset($paginate['previousPageUrl'])
-                <li class='page-item'>
-                    <a href="{{ $paginate['previousPageUrl'] }}" class='page-link' aria-label="Previous">&lsaquo;</a>
-                </li>
-            @endisset
 
-            {{-- Render select element for page links --}}
-            @if(is_array($paginate['pages'] ?? ''))
-                <li class="page-item">
-                    <select class="pagination-select" onchange="window.location.href = this.value;">
-                        @foreach ($paginate['pages'] as $page)
-                            <option value="{{ $page['pageUrl'] }}"
-                                {{ $page['active_class'] === 'active' ? 'selected' : '' }}>
-                                {{ $page['pageNo'] }}
-                            </option>
-                        @endforeach
-                    </select>
-                </li>
-            @endif
+      
 
-            {{-- Render next page link if available --}}
-            @isset($paginate['nextPageUrl'])
-                <li class='page-item'>
-                    <a href="{{ $paginate['nextPageUrl'] }}" class='page-link' aria-label="Next">&rsaquo;</a>
-                </li>
-            @endisset
-
-            {{-- Render last page link if available --}}
-            @isset($paginate['lastPageUrl'])
-                <li class='page-item'>
-                    <a href="{{ $paginate['lastPageUrl'] }}" class='page-link' aria-label="Last Page">&raquo;</a>
-                </li>
-            @endisset
-        </ul>
-    </nav>
-    @else
-    <nav aria-label="Search Results Navigation">
-        <ul class="pagination">
-            {{-- Render first page link if available --}}
-            @isset($paginate['firstPageUrl'])
-                <li class='page-item'>
-                    <a href="{{ $paginate['firstPageUrl'] }}" class='page-link' aria-label="First Page">&laquo;</a>
-                </li>
-            @endisset
-
-            {{-- Render previous page link if available --}}
-            @isset($paginate['previousPageUrl'])
-                <li class='page-item'>
-                    <a href="{{ $paginate['previousPageUrl'] }}" class='page-link' aria-label="Previous">&lsaquo;</a>
-                </li>
-            @endisset
-
-            {{-- Render page links --}}
-            @if(is_array($paginate['pages'] ?? ''))
-                @foreach ($paginate['pages'] as $page)
-                    <li class="page-item {{ $page['active_class'] }}">
-                        <a href="{{ $page['pageUrl'] }}" class='page-link'>{{ $page['pageNo'] }}</a>
-                    </li>
-                @endforeach
-            @endif
-
-            {{-- Render next page link if available --}}
-            @isset($paginate['nextPageUrl'])
-                <li class='page-item'>
-                    <a href="{{ $paginate['nextPageUrl'] }}" class='page-link' aria-label="Next">&rsaquo;</a>
-                </li>
-            @endisset
-
-            {{-- Render last page link if available --}}
-            @isset($paginate['lastPageUrl'])
-                <li class='page-item'>
-                    <a href="{{ $paginate['lastPageUrl'] }}" class='page-link' aria-label="Last Page">&raquo;</a>
-                </li>
-            @endisset
-        </ul>
-    </nav>
+    <div class="d-flex flex-row justify-content-center align-items-center page-numbers">
+    @if(is_array($paginate['pages'] ?? ''))
+        @php
+            $totalPages = count($paginate['pages']);
+            $currentPage = collect($paginate['pages'])->firstWhere('active_class', 'active');
+        @endphp
+        @if($currentPage)
+            <div class="page-info">
+                Page {{ $currentPage['pageNo'] }} / {{ $totalPages }}
+            </div>
+        @endif
     @endif
+</div>
+
+
+    <div class="d-flex prevnext flex-row justify-content-center align-items-center button-box">
+
+
+        <div class="d-flex flex-row justify-content-center align-items-center button-box">
+            {{-- Render previous page divnk if available --}}
+            @isset($paginate['previousPageUrl'])
+            <div class='page-item prev-page-item'>
+                <a href="{{ $paginate['previousPageUrl'] }}" class='page-divnk' aria-label="Previous">
+                    <span class="pagination-name">Prev</span></a>
+            </div>
+            @endisset
+        </div>
+
+
+        <div class="d-flex flex-row justify-content-center align-items-center button-box">
+            {{-- Render next page divnk if available --}}
+            @isset($paginate['nextPageUrl'])
+            <div class='page-item next-page-item'>
+                <a href="{{ $paginate['nextPageUrl'] }}" class='page-divnk' aria-label="Next"><span
+                        class="pagination-name">Next</span></a>
+            </div>
+            @endisset
+        </div>
+
+    </div>
+
+
+    </div>
+</nav>
 @endif

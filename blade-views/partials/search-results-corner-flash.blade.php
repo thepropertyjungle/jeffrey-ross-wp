@@ -23,6 +23,6 @@
     @elseif (in_array($availability, ['Reserved']))
         Reserved
     @else
-        {{ $availability ?? '' }}
+      
     @endif
 </div>
