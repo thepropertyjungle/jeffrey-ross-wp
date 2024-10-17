@@ -2812,6 +2812,34 @@ blockquote:last-child {
   font-size: 20px;
 }
 
+.branch-info {
+  gap: 20px;
+  padding-bottom: 20px;
+}
+.branch-info .branch-image img {
+  width: 70px;
+  height: 70px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+.branch-info .branch-contact h4 {
+  font-family: var(--e-global-typography-991b6d4-font-family), Sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+.branch-info .branch-contact a {
+  font-family: var(--e-global-typography-991b6d4-font-family), Sans-serif;
+  font-weight: 400;
+  color: #1b313e;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.highest {
+  display: none !important;
+}
+
 @font-face {
   font-family: "Azo";
   src: url("../../fonts/AzoSans-Regular.woff2") format("woff2"), url("../../fonts/AzoSans-Regular.woff") format("woff");

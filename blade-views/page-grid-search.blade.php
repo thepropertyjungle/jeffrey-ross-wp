@@ -13,12 +13,12 @@
         
     <div class="col p-0">
             <div class="search">
-                <h2 class="search-hero__heading">Properties for sale</h2>
+                <h2 class="search-hero__heading">Properties found</h2>
                 <p class="total-posts__count m-0"> {{ $total_posts }} matching results @if(($_GET['instruction_type'] ?? '') === 'sale') for Sale @elseif(($_GET['instruction_type'] ?? '') === 'letting') for Rent @endif</p>
             </div>
         </div>
     
-        <div class="col-sm-12 col-md-12 d-flex justify-content-end pb-5 pb-md-0">
+        <div class="col-sm-12 col-md-12  highest justify-content-end pb-5 pb-md-0">
     <label for="orderby" class="sr-only">Highest or Lowest Price</label>
     <span class="styled-select">
         <select

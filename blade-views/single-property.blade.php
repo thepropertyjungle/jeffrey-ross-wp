@@ -317,8 +317,49 @@ $propertyImages = $property['images'] ?? [];
     @endif
 
 
+    <div class=" branch " >
+                   
+            <h4 class="feature">Contact our branch </h4>
+    
+            <div class="d-flex branch-info " >
 
-                    <div class="d-flex buttons p-3" >
+            <div class="branch-image">
+                <img class="alignnone size-medium wp-image-2541" src="{{ $property['branch']['description'] ?? '' }}" alt="" width="212" height="300">
+            </div>
+
+
+
+                <div class="branch-contact" >
+
+                <h4> {{ $property['branch']['name'] ?? '' }}</h4>
+
+                <a href="tel:{{ $property['branch']['meta']['phone_numbers'][0] ?? '' }}">
+                    {{ $property['branch']['meta']['phone_numbers'][0] ?? '' }}
+                </a>
+
+
+                </div>
+
+
+            
+
+
+            </div>
+    
+    
+    
+    </div>
+
+
+                   
+
+
+
+
+
+
+
+                    <div class="d-flex buttons " >
                     <a href="#" class="btn first btn-primary">Arrange a viewing</a>
                     <a href="#" class="btn  second btn-secondary">Make an offer</a>
                     </div>
@@ -329,7 +370,51 @@ $propertyImages = $property['images'] ?? [];
     <!-- prop info -->
     <!-- agent -->
 
+    <div class="enquiry-box ">
+              
+        
+  
+      <div class=" branch " >
+                     
+              <h4 class="feature">Agent Details </h4>
+      
+              <div class="d-flex branch-info " >
+  
+              
+              <div class="branch-contact" >
+  
+                <h4> {{ $property['branch']['name'] ?? '' }}</h4>
+
+                <a href="tel:{{ $property['branch']['meta']['phone_numbers'][0] ?? '' }}">
+                    {{ $property['branch']['meta']['phone_numbers'][0] ?? '' }}
+                </a>
+
+
+                </div>
+              
+              
+              <div class="branch-image">
+                  <img class="alignnone size-medium wp-image-2541" src="{{ $property['branch']['description'] ?? '' }}" alt="" width="212" height="300">
+              </div>
+  
+  
+  
+  
+              </div>
+      
+      
+      
+      </div>
+  
+  
                 
+                      <div class="d-flex buttons " >
+                      <a href="#" class="btn first btn-primary">Follow Ramzy on instagram</a>
+                      <a href="#" class="btn  second btn-secondary">Contact Agent</a>
+                      </div>
+  
+  
+                      </div>           
                     
   
     <!-- agent -->

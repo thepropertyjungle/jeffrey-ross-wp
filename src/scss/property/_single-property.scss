@@ -763,3 +763,49 @@ font-weight: 600;
 
 
 }
+
+
+.branch-info {
+    gap: 20px;
+    padding-bottom: 20px;
+
+    .branch-image {
+
+    img {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    }
+
+
+    .branch-contact {
+        
+      h4 {
+        
+        font-family: var(--e-global-typography-991b6d4-font-family), Sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+      }
+
+      a {
+        font-family: var(--e-global-typography-991b6d4-font-family), Sans-serif;
+        font-weight: 400;
+        color: #1b313e;
+        text-decoration: none;
+        cursor: pointer;       
+    }
+
+
+    }
+
+
+
+
+}
+
+.highest {
+    display: none !important;
+}
