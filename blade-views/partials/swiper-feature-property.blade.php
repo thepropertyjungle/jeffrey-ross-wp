@@ -10,8 +10,15 @@
     @if ($hasImages)
         <div class="img-permalink" style="background: url('{{ $property['images'][0]['optimised_image_url'] ?? '' }}/500') bottom center no-repeat;"></div>
         @else
-            <img src="" alt="Awaiting Images for {{ $property['Address']['display_address'] }}">
+        <div class="img-permalink" style="background: url('/wp-content/uploads/2024/08/For-Sale-Board-1.jpg') bottom center no-repeat;"></div>
+   
         @endif
+
+
+       
+
+
+
     </div>
        
         <div class="property-grid__meta">

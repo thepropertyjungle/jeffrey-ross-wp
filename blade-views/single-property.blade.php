@@ -125,7 +125,7 @@ $propertyImages = $property['images'] ?? [];
                                 <a href="{{ $epc_doc['media_url'] }}" class="nav-link" rel="noopener noreferrer" target="_blank" title="View EPC Document for {{ $property['Address']['display_address'] ?? '' }}">EPC Document</a>
                             @endforeach
                         @elseif(!empty($property['epc_urls']))
-                            <button class="nav-link" id="nav-epc-tab" data-bs-toggle="tab" data-bs-target="#nav-EPC" type="button" role="tab" aria-controls="nav-EPC" aria-selected="false">
+                            <button class="nav-link" id="epc" data-bs-toggle="tab" data-bs-target="#nav-EPC" type="button" role="tab" aria-controls="nav-EPC" aria-selected="false">
                                 EPC
                             </button>
                         @endif
@@ -215,29 +215,34 @@ $propertyImages = $property['images'] ?? [];
 
 
 
-                @if(!empty($property['epc_doc_urls']) || !empty($property['epc_urls']))
-                <div  id="nav-EPC" role="tabpanel" aria-labelledby="nav-epc-tab">
-                    @if(!empty($property['epc_doc_urls']))
-                        @foreach($property['epc_doc_urls'] as $epc_doc)
-                            <a href="{{ $epc_doc['media_url'] }}" rel="noopener noreferrer" target="_blank" title="View EPC Document for {{ $property['Address']['display_address'] ?? '' }}">View EPC Document</a>
-                        @endforeach
-                    @elseif(!empty($property['epc_urls']))
-                        @foreach($property['epc_urls'] as $epc_image)
-                            <img loading="lazy" src="{{ $epc_image['media_url'] }}" class="img-fluid" alt="EPC for {{ $property['Address']['display_address'] ?? '' }}">
-                        @endforeach
-                    @endif
-                </div>
-                @endif
-                @if(is_array($property['virtual_tours'] ?? false))
-                <div  id="nav-Virtualtour" role="tabpanel" aria-labelledby="nav-Virtualtour-tab">
-                <h2 class="tab-headings">Virtual tours</h2>
-
                 
-                @foreach ($property['virtual_tours'] as $property_virtualtour)
-                    <iframe width="100%" height="550" src="{{ $property_virtualtour['media_url'] ?? '' }}" autoplay=1 frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
-                    @endforeach
-                </div>
+
+                @if($property['epcs'])
+                                <div id="epc" class="col">
+                                    @foreach ($property['epcs'] as $epcs)
+                                    <img loading="lazy" src="{{ $epcs['media_url'] }}" class="img-fluid"
+                                        alt="EPC for {{ $property['Address']['display_address'] ?? '' }}">
+                                    @endforeach
+                                </div>
                 @endif
+
+
+
+
+
+
+                @if(is_array($property['virtual_tours'] ?? false) && count($property['virtual_tours']) > 0)
+    <div id="nav-Virtualtour" role="tabpanel" aria-labelledby="nav-Virtualtour-tab">
+        <h2 class="tab-headings">Virtual tours</h2>
+
+        @foreach ($property['virtual_tours'] as $property_virtualtour)
+            <iframe width="100%" height="550" src="{{ $property_virtualtour['media_url'] ?? '' }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        @endforeach
+    </div>
+@else
+  
+@endif
+
 
  <div class="map" id="nav-Map" role="tabpanel" aria-labelledby="nav-Map-tab">
                     <h2 class="tab-headings">Location</h2>
@@ -261,7 +266,7 @@ $propertyImages = $property['images'] ?? [];
         
         <div class="enquiry-box ">
               
-            @if ($property['availability'] !== 'Available')
+        @if ($property['availability'] !== 'Available')
         <div class="availability">
             <p>{{ $property['availability'] === 'SSTC' ? 'Sold STC' : $property['availability'] }}</p>
         </div>
@@ -269,7 +274,7 @@ $propertyImages = $property['images'] ?? [];
         <div class="property-grid__meta">
                 <div class="property-grid__type">
                     <p>
-                        {{ $property['bedrooms'] }} Bed For @if ($property['instruction_type'] == 'Letting') Rent @else Sale @endif
+                        For @if ($property['instruction_type'] == 'Letting') Rent @else Sale @endif
                     </p>
                 </div>
             
@@ -359,13 +364,37 @@ $propertyImages = $property['images'] ?? [];
 
 
 
-                    <div class="d-flex buttons " >
-                    <a href="#" class="btn first btn-primary">Arrange a viewing</a>
-                    <a href="#" class="btn  second btn-secondary">Make an offer</a>
-                    </div>
+            <!-- Button to trigger the modal -->
+<div class="d-flex buttons">
+    <a data-bs-toggle="modal" data-bs-target="#propertyViewing" class="btn first btn-primary">Arrange a viewing</a>
+    <a href="#" class="btn second btn-secondary">Make an offer</a>
+</div>
 
-
-                    </div>
+<!-- Modal Viewing Form -->
+<div class="modal fade" id="propertyViewing" aria-hidden="true" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg py-5">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="p-5 form__viewing">
+                    <h4 class="mb-5">Arrange a Viewing</h4>
+                    {!! gravity_form(
+                        id: 8, // Gravity Form ID
+                        display_title: false,
+                        display_description: false,
+                        ajax: true,
+                        field_values: [
+                            'office_id' => $property['branch']['meta']['office_id'] ?? '',
+                            'advert_address' => $property['Address']['display_address'] ?? '',
+                            'advert_postcode' => $property['Address']['postcode'] ?? '',
+                            'instruction_type' => $property['instruction_type'] ?? '',
+                            'advert_url' => $property['permalink'] ?? '',
+                        ],
+                    ) !!}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- prop info -->
     <!-- agent -->
@@ -433,8 +462,14 @@ $propertyImages = $property['images'] ?? [];
                         accurate figures from your lender before committing to any mortgage. Your home may be repossessed if
                         you do not keep up repayments on a mortgage. </p>
   
-  
+                        
+                    <img src="/wp-content/uploads/2024/10/Grosvenor-May-logo.png" width="200px"alt="Grosvenor May Logo" />
+
+
+
                     </div>
+
+
   
                 
     <!-- calc -->
@@ -478,7 +513,7 @@ $propertyImages = $property['images'] ?? [];
                       <div class="buttons" >
                      <h4>Need Advice?</h4>
                      <p>If you are searching for a new property, we have the knowledge and expertise you need to help your dreamhouse become a reality</p>
-                      <a href="#" class="btn first btn-primary">Find out more</a>
+                      <a href="/contact/" class="btn first btn-primary">Find out more</a>
                       
                       </div>
 

@@ -2093,7 +2093,7 @@ blockquote:last-child {
 .home .property__rooms li {
   display: inline-block;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--e-global-color-primary);
   margin-right: 8px;
 }
@@ -2412,7 +2412,7 @@ blockquote:last-child {
   display: inline-block;
   font-family: var(--e-global-typography-991b6d4-font-family), Sans-serif;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--e-global-color-secondary);
 }
 #property-details .tab-content .tab-pane .property__rooms li svg {
@@ -2475,6 +2475,9 @@ blockquote:last-child {
   line-height: 1.36;
   margin-bottom: 1.1rem;
   color: var(--e-global-color-secondary);
+}
+.enquiry-box img {
+  width: 200px;
 }
 .enquiry-box h2 {
   margin: 0;
@@ -2643,7 +2646,7 @@ blockquote:last-child {
 }
 
 .single-tpj_properties .property-grid__type p {
-  font-weight: 500;
+  font-weight: 600;
   font-family: var(--e-global-typography-991b6d4-font-family), Sans-serif;
 }
 .single-tpj_properties .property-grid__price {
@@ -2656,14 +2659,14 @@ blockquote:last-child {
   word-spacing: var(--e-global-typography-470454f-word-spacing);
 }
 .single-tpj_properties .property-grid__address {
-  font-weight: 500;
+  font-weight: 600;
   font-family: var(--e-global-typography-991b6d4-font-family), Sans-serif;
   padding: 10px 0px;
 }
 .single-tpj_properties .feature {
   padding-bottom: 20px;
   font-family: var(--e-global-typography-991b6d4-font-family), Sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 20px;
 }
 .single-tpj_properties .buttons {
@@ -2671,6 +2674,7 @@ blockquote:last-child {
 }
 .single-tpj_properties .buttons .first {
   color: white;
+  border-radius: 5px;
   background-color: #cd3301;
   border: #cd3301;
   padding: 9px 13px;
@@ -2683,6 +2687,7 @@ blockquote:last-child {
 }
 .single-tpj_properties .buttons .second {
   color: #162d3a;
+  border-radius: 5px;
   background-color: white;
   border: white;
   padding: 9px 13px;
@@ -2783,7 +2788,7 @@ blockquote:last-child {
   font-size: 2rem;
 }
 .single-tpj_properties .height {
-  height: 110px;
+  height: 115px;
   overflow: hidden;
 }
 .single-tpj_properties .read {
@@ -2825,7 +2830,7 @@ blockquote:last-child {
 }
 .branch-info .branch-contact h4 {
   font-family: var(--e-global-typography-991b6d4-font-family), Sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 20px;
 }
 .branch-info .branch-contact a {
@@ -2838,6 +2843,11 @@ blockquote:last-child {
 
 .highest {
   display: none !important;
+}
+
+#mortgage_calculator_success {
+  background: white !important;
+  color: #162d3a !important;
 }
 
 @font-face {
