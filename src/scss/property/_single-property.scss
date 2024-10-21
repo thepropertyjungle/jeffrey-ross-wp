@@ -623,6 +623,11 @@
     justify-content: center; /* Center the content horizontally */
     overflow: hidden; /* Hide overflow */
 
+    @media (max-width:767px) { 
+
+        padding: 0px 0px;
+    
+    }
 
 
     & img {
@@ -663,6 +668,12 @@
 
     }
 
+    @media (max-width:767px) { 
+
+        display:none !important; 
+    
+    }
+
     
    
 
@@ -691,6 +702,13 @@
 
     right: 105px;
     z-index: 2;
+
+}
+
+
+@media (max-width:767px) { 
+
+    display:none !important;
 
 }
 

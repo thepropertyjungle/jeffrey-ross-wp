@@ -103,18 +103,28 @@
         .tab-pane {
             form {
        
-                 
+                 .col-12.col-sm-2 {
+
+                    @media (max-width: 1024px) {
+                        padding: 0px 0px 0px 15px !important;
+                    }
+
+
+                 }
                 .fields-col {
                     padding: 0px 0px 0px 24px;
 
                     @media (max-width: 1024px) {
-                        padding: 0;
+                        padding: 0px 0px 0px 15px;
                     }
 
                     @media (max-width: 767px) {
                         border: 0px solid #E2E2E2;
 
                     }
+
+
+                
   
                     & .row {
 
@@ -479,9 +489,10 @@
 
                         @media(max-width:767px){
 
-                             width: 100%;
+                            width: calc(100% - 20px);
                              padding: 13px 13px 13px 13px;
                              border: 1px solid #E2E2E2;
+                             margin: 0px 10px;
 
                         }
                     }
@@ -625,6 +636,15 @@
                     right: 10px;
                     top: 10px;
                     height: 72%;
+
+
+                    @media (max-width: 1024px) {
+                        width: 37%;
+                        right: 10px;
+                        top: -3px;
+                    }
+
+
 
                     svg {
                         width: 18px;
@@ -1016,6 +1036,14 @@ justify-content: center;
 display: flex;
 margin-top: 22rem;
 
+@media(max-width:1024px){
+
+    margin-top: -14rem;
+
+
+}
+
+
         & .tab-content {
 
             width:100%;
@@ -1064,6 +1092,7 @@ margin-top: 22rem;
 
                         & .lettings-prices {
                             padding-left: 30px;
+                            display: block !important;
                         }
 
                         & input {
@@ -1160,6 +1189,14 @@ margin-top: 22rem;
                     letter-spacing: var(--e-global-typography-241d6f4-letter-spacing);
                     word-spacing: var(--e-global-typography-241d6f4-word-spacing);
                     color: var(--e-global-color-fa98db2);
+
+                    @media(max-width:767px){
+
+                    display: none;                        
+                    } 
+
+
+
                 }
             }    
 

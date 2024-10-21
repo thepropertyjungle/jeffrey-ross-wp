@@ -120,16 +120,19 @@ $propertyImages = $property['images'] ?? [];
 
                     @endif
                     @if(!empty($property['epc_doc_urls']) || !empty($property['epc_urls']))
-                        @if(!empty($property['epc_doc_urls']))
-                            @foreach($property['epc_doc_urls'] as $epc_doc)
-                                <a href="{{ $epc_doc['media_url'] }}" class="nav-link" rel="noopener noreferrer" target="_blank" title="View EPC Document for {{ $property['Address']['display_address'] ?? '' }}">EPC Document</a>
-                            @endforeach
-                        @elseif(!empty($property['epc_urls']))
-                            <button class="nav-link" id="epc" data-bs-toggle="tab" data-bs-target="#nav-EPC" type="button" role="tab" aria-controls="nav-EPC" aria-selected="false">
-                                EPC
-                            </button>
-                        @endif
-                    @endif
+    @if(!empty($property['epc_doc_urls']))
+        @foreach($property['epc_doc_urls'] as $epc_doc)
+            <!-- Link to the EPC document -->
+            <a href="{{ $epc_doc }}" class="nav-link" rel="noopener noreferrer" target="_blank" title="View EPC Document for {{ $property['Address']['display_address'] ?? '' }}">EPC Document</a>
+        @endforeach
+    @elseif(!empty($property['epc_urls']))
+        <!-- Button to trigger EPC tab -->
+        <button class="nav-link" id="epc" data-bs-toggle="tab" data-bs-target="#nav-EPC" type="button" role="tab" aria-controls="nav-EPC" aria-selected="false">
+            EPC
+        </button>
+    @endif
+@endif
+
                     @if(is_array($property['virtual_tours'] ?? null) && count($property['virtual_tours']) > 0)
                         @foreach ($property['virtual_tours'] as $index => $property_virtualtour)
                         <a href="{{ $property_virtualtour['media_url'] ?? '' }}" rel="noopener noreferrer" target="_blank" class="nav-link">
@@ -368,7 +371,7 @@ $propertyImages = $property['images'] ?? [];
 <div class="d-flex buttons">
     <a data-bs-toggle="modal" data-bs-target="#propertyViewing" class="btn first btn-primary">Arrange a viewing</a>
     <a href="#" class="btn second btn-secondary">Make an offer</a>
-</div>
+
 
 <!-- Modal Viewing Form -->
 <div class="modal fade" id="propertyViewing" aria-hidden="true" tabindex="-1">
@@ -396,9 +399,12 @@ $propertyImages = $property['images'] ?? [];
     </div>
 </div>
 
+                    </div>
+                    </div>
+
     <!-- prop info -->
     <!-- agent -->
-
+                    
     <div class="enquiry-box ">
               
         

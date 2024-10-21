@@ -2729,6 +2729,11 @@ blockquote:last-child {
           justify-content: center; /* Center the content horizontally */
   overflow: hidden; /* Hide overflow */
 }
+@media (max-width: 767px) {
+  .single-tpj_properties .slick-slide {
+    padding: 0px 0px;
+  }
+}
 .single-tpj_properties .slick-slide img {
   border-radius: 8px;
   width: 100%;
@@ -2759,6 +2764,11 @@ blockquote:last-child {
     z-index: 2;
   }
 }
+@media (max-width: 767px) {
+  .single-tpj_properties .slick-prev {
+    display: none !important;
+  }
+}
 .single-tpj_properties .slick-next {
   padding: 0px;
   position: absolute;
@@ -2780,6 +2790,11 @@ blockquote:last-child {
   .single-tpj_properties .slick-next {
     right: 105px;
     z-index: 2;
+  }
+}
+@media (max-width: 767px) {
+  .single-tpj_properties .slick-next {
+    display: none !important;
   }
 }
 .single-tpj_properties .tab-headings {
@@ -3413,12 +3428,17 @@ h4.property-search-title {
     padding: 10px;
   }
 }
+@media (max-width: 1024px) {
+  #search-form--tabbed.home-search .tab-content .tab-pane form .col-12.col-sm-2 {
+    padding: 0px 0px 0px 15px !important;
+  }
+}
 #search-form--tabbed.home-search .tab-content .tab-pane form .fields-col {
   padding: 0px 0px 0px 24px;
 }
 @media (max-width: 1024px) {
   #search-form--tabbed.home-search .tab-content .tab-pane form .fields-col {
-    padding: 0;
+    padding: 0px 0px 0px 15px;
   }
 }
 @media (max-width: 767px) {
@@ -3772,9 +3792,10 @@ h4.property-search-title {
 }
 @media (max-width: 767px) {
   #search-form--tabbed.home-search.advanced .tab-content .tab-pane form .fields-col .location {
-    width: 100%;
+    width: calc(100% - 20px);
     padding: 13px 13px 13px 13px;
     border: 1px solid #E2E2E2;
+    margin: 0px 10px;
   }
 }
 #search-form--tabbed.home-search.advanced .tab-content .tab-pane form .fields-col .form-group {
@@ -3920,6 +3941,13 @@ h4.property-search-title {
   right: 10px;
   top: 10px;
   height: 72%;
+}
+@media (max-width: 1024px) {
+  #search-form--tabbed.home-search.advanced .tab-content .tab-pane form button {
+    width: 37%;
+    right: 10px;
+    top: -3px;
+  }
 }
 #search-form--tabbed.home-search.advanced .tab-content .tab-pane form button svg {
   width: 18px;
@@ -4295,6 +4323,11 @@ h4.property-search-title {
   display: flex;
   margin-top: 22rem;
 }
+@media (max-width: 1024px) {
+  .home-search.prop {
+    margin-top: -14rem;
+  }
+}
 .home-search.prop .tab-content {
   width: 100%;
   background-color: #cfd7d8 !important;
@@ -4329,6 +4362,7 @@ h4.property-search-title {
 }
 .home-search.prop .tab-content .tab-pane form .collapseAdvanced .card-body .lettings-prices {
   padding-left: 30px;
+  display: block !important;
 }
 .home-search.prop .tab-content .tab-pane form .collapseAdvanced .card-body input {
   margin-left: 3px;
@@ -4404,6 +4438,11 @@ h4.property-search-title {
   letter-spacing: var(--e-global-typography-241d6f4-letter-spacing);
   word-spacing: var(--e-global-typography-241d6f4-word-spacing);
   color: var(--e-global-color-fa98db2);
+}
+@media (max-width: 767px) {
+  .home-search.prop .tab-content .tab-pane form .advanced__collapse-btn {
+    display: none;
+  }
 }
 
 .search .search-hero {
