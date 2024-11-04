@@ -12,8 +12,8 @@
 @endphp
 
 <div class="property__corner-flash">
-    @if (in_array($availability, ['SSTC (sales only)', 'SSTC', 'Sold Subject to Contract', 'Sold STC']))
-        Sold STC
+    @if (in_array($availability, ['SSTC (sales only)', 'SSTC', 'Sold Subject to Contract', 'Sold STC', 'Sold']))
+        Sold  
     @elseif (in_array($availability, ['SSTCM (Scottish sales only)', 'SSTCM']))
         SSTCM
     @elseif (in_array($availability, ['Under Offer (sales only)', 'Under Offer']))

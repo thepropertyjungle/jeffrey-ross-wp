@@ -6,6 +6,9 @@
     <div>
     @include('partials/search-results-corner-flash')
 
+    
+
+
     <div class="property__img" >
     @if ($hasImages)
         <div class="img-permalink" style="background: url('{{ $property['images'][0]['optimised_image_url'] ?? '' }}/500') bottom center no-repeat;"></div>
