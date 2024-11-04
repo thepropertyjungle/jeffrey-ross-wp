@@ -42,69 +42,12 @@ $propertyImages = $property['images'] ?? [];
                    
                     
                 <!-- gallery -->
-                <a href="#" class="nav-link" data-toggle="modal"
-                    data-target="#galleryModal">
+                <a href="#gallery-1" class="nav-link" 
+                    >
 
                     Gallery</a>
 
-                <!-- Bootstrap Modal -->
-                <div class="modal fade" id="galleryModal" tabindex="-1" role="dialog"
-                    aria-labelledby="galleryModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="galleryModalLabel">Gallery</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                @if(count($propertyImages) == 1)
-                                <img loading="lazy" src="{{ $propertyImages[0]['optimised_image_url'] ?? '' }}/1024"
-                                    class="img-fluid" alt="{{ $property['Address']['display_address'] }}"
-                                    data-media-update-date="{{ $property[0]['images']['media_update_date']}}"
-                                    data-caption="{{ $property[0]['images']['caption'] }}">
-                                @elseif(count($propertyImages) > 1)
-                                <div id="propertyCarousel" class="carousel slide" data-bs-ride="carousel">
-                                    <div class="carousel-indicators">
-                                        @foreach($propertyImages as $index => $indicator)
-                                        <button type="button" data-bs-target="#propertyCarousel"
-                                            data-bs-slide-to="{{ $index }}"
-                                            class="{{ $index == 0 ? 'active' : '' }}"></button>
-                                        @endforeach
-                                    </div>
-
-                                    <div class="carousel-inner">
-                                        @foreach($propertyImages as $index => $property_image)
-                                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                                            <img loading="lazy"
-                                                src="{{ $property_image['optimised_image_url'] ?? '' }}/1024"
-                                                class="d-block w-100"
-                                                alt="{{ $property['Address']['display_address'] }}"
-                                                data-media-update-date="{{ $property_image['media_update_date']}}"
-                                                data-caption="{{ $property_image['caption'] }}">
-                                        </div>
-                                        @endforeach
-                                    </div>
-                                    <button class="carousel-control-prev" type="button"
-                                        data-bs-target="#propertyCarousel" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </button>
-                                    <button class="carousel-control-next" type="button"
-                                        data-bs-target="#propertyCarousel" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </button>
-                                </div>
-                                @else
-                                <p>No Images Added for this property</p>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- gallery -->
+               
 
 
 
@@ -136,7 +79,7 @@ $propertyImages = $property['images'] ?? [];
                     @if(is_array($property['virtual_tours'] ?? null) && count($property['virtual_tours']) > 0)
                         @foreach ($property['virtual_tours'] as $index => $property_virtualtour)
                         <a href="{{ $property_virtualtour['media_url'] ?? '' }}" rel="noopener noreferrer" target="_blank" class="nav-link">
-                            Virtual Tour{{ count($property['virtual_tours']) > 1 ? ' ('.($index + 1).')' : '' }}
+                            Video Tour{{ count($property['virtual_tours']) > 1 ? ' ('.($index + 1).')' : '' }}
                         </a>
                         @endforeach
                     @endif
@@ -166,6 +109,18 @@ $propertyImages = $property['images'] ?? [];
     <div class="row">
         <div class="col-sm-12 col-lg-8">
             <div class="tab-content property-content" id="nav-tabContent">
+
+            <div class="gallery hide">
+
+            @foreach($propertyImages as $index => $property_image)
+                <a href="{{ $property_image['optimised_image_url'] ?? '' }}/1500" data-fancybox="gallery" data-caption="{{ $property_image['caption'] }}">
+                    <img src="path/to/thumb1.jpg" alt="{{ $property['Address']['display_address'] }}">
+                </a>
+            @endforeach
+   
+            </div>
+
+
          
             <div id="ppropertyCarousel" class="slider">
                 @foreach($propertyImages as $index => $property_image)
@@ -236,7 +191,7 @@ $propertyImages = $property['images'] ?? [];
 
                 @if(is_array($property['virtual_tours'] ?? false) && count($property['virtual_tours']) > 0)
     <div id="nav-Virtualtour" role="tabpanel" aria-labelledby="nav-Virtualtour-tab">
-        <h2 class="tab-headings">Virtual tours</h2>
+        <h2 class="tab-headings">Video tours</h2>
 
         @foreach ($property['virtual_tours'] as $property_virtualtour)
             <iframe width="100%" height="550" src="{{ $property_virtualtour['media_url'] ?? '' }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>

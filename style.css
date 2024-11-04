@@ -2865,6 +2865,14 @@ blockquote:last-child {
   color: #162d3a !important;
 }
 
+.hide {
+  display: none;
+}
+
+.carousel__button {
+  width: auto !important;
+}
+
 @font-face {
   font-family: "Azo";
   src: url("../../fonts/AzoSans-Regular.woff2") format("woff2"), url("../../fonts/AzoSans-Regular.woff") format("woff");
