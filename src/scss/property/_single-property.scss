@@ -805,6 +805,9 @@ font-weight: 600;
     }
 
 
+   
+
+
     .branch-contact {
         
       h4 {
@@ -846,3 +849,20 @@ font-weight: 600;
 
 .carousel__button {
     width: auto !important; }
+
+
+.branch-info {
+        gap: 20px;
+        padding-bottom: 20px;
+    
+        .branch-image.agent  {
+    
+        img {
+            width: 200px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    
+        }
+}
