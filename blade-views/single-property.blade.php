@@ -13,11 +13,54 @@
     $advert_postcode = $property['Address']['postcode'] ?? '';
     $advert_url = $property['permalink'] ?? '';
     // Are there images for this property?
-$propertyImages = $property['images'] ?? [];
+    $propertyImages = $property['images'] ?? [];
+
+    // Define embeddable URL function
+    function isEmbeddableVideo($url) {
+        if (strpos($url, 'youtu.be') !== false || 
+            strpos($url, 'youtube.com') !== false || 
+            strpos($url, 'vimeo.com') !== false || 
+            strpos($url, 'youriguide.com') !== false || 
+            preg_match('/\.(mp4)$/', parse_url($url, PHP_URL_PATH))) {
+            return true; // URL is embeddable
+        }
+        return false; // URL is not embeddable
+    }
+
+    // Video embed function, covers YouTube, Vimeo and .mp4
+    function getVideoEmbedCode($url)
+    {
+        // Initialise the embed code variable
+        $embedCode = '';
+
+        // Check for YouTube URLs
+        if (strpos($url, 'youtu.be') !== false || strpos($url, 'youtube.com') !== false) {
+            preg_match('/(?:youtu.be\/|youtube.com(?:\/embed\/|\/v\/|\/watch\?v=|\/watch\?.+&v=))([^\s&]+)/', $url, $match);
+            $videoId = $match[1];
+            $embedCode = '<div class="ratio ratio-16x9 mb-3"><iframe src="https://www.youtube.com/embed/' . $videoId . '?controls=0&rel=0&playsinline=1" allowfullscreen></iframe></div>';
+        }
+        // Check for Vimeo URLs
+        elseif (strpos($url, 'vimeo.com') !== false) {
+            preg_match('/vimeo\.com\/(?:video\/)?((\d+)\?h=(.+))/', $url, $match);
+            $videoId = $match[1];
+            $embedCode = '<div class="ratio ratio-16x9 mb-3"><iframe src="https://player.vimeo.com/video/' . $videoId . '" allowfullscreen></iframe></div>';
+        }
+
+        // Check for iGUIDE links
+        elseif (strpos($url, 'youriguide.com') !== false) {
+            preg_match('/youriguide\.com\/([a-zA-Z0-9_]+)/', $url, $match);
+            $guideId = $match[1];
+            $embedCode = '<div class="ratio ratio-16x9 mb-3"><iframe src="https://youriguide.com/' . $guideId . '" allowfullscreen></iframe></div>';
+        }
+        // Direct MP4 links
+        elseif (preg_match('/\.(mp4)$/', parse_url($url, PHP_URL_PATH))) {
+            $embedCode = '<div class="ratio ratio-16x9 mb-3"><video src="' . $url . '" controls allowfullscreen></video></div>';
+        }
+
+        return $embedCode;
+    }
+
 @endphp
-
-
-
 
 <div class="brand-primary-background">
     <div class="container">
@@ -63,18 +106,18 @@ $propertyImages = $property['images'] ?? [];
 
                     @endif
                     @if(!empty($property['epc_doc_urls']) || !empty($property['epc_urls']))
-    @if(!empty($property['epc_doc_urls']))
-        @foreach($property['epc_doc_urls'] as $epc_doc)
-            <!-- Link to the EPC document -->
-            <a href="{{ $epc_doc }}" class="nav-link" rel="noopener noreferrer" target="_blank" title="View EPC Document for {{ $property['Address']['display_address'] ?? '' }}">EPC Document</a>
-        @endforeach
-    @elseif(!empty($property['epc_urls']))
-        <!-- Button to trigger EPC tab -->
-        <button class="nav-link" id="epc" data-bs-toggle="tab" data-bs-target="#nav-EPC" type="button" role="tab" aria-controls="nav-EPC" aria-selected="false">
-            EPC
-        </button>
-    @endif
-@endif
+                        @if(!empty($property['epc_doc_urls']))
+                            @foreach($property['epc_doc_urls'] as $epc_doc)
+                                <!-- Link to the EPC document -->
+                                <a href="{{ $epc_doc }}" class="nav-link" rel="noopener noreferrer" target="_blank" title="View EPC Document for {{ $property['Address']['display_address'] ?? '' }}">EPC Document</a>
+                            @endforeach
+                        @elseif(!empty($property['epc_urls']))
+                            <!-- Button to trigger EPC tab -->
+                            <button class="nav-link" id="epc" data-bs-toggle="tab" data-bs-target="#nav-EPC" type="button" role="tab" aria-controls="nav-EPC" aria-selected="false">
+                                EPC
+                            </button>
+                        @endif
+                    @endif
 
                     @if(is_array($property['virtual_tours'] ?? null) && count($property['virtual_tours']) > 0)
                         @foreach ($property['virtual_tours'] as $index => $property_virtualtour)
@@ -83,10 +126,6 @@ $propertyImages = $property['images'] ?? [];
                         </a>
                         @endforeach
                     @endif
-
-
-
-
 
                     @if(!empty($property['brochures']))
                  
@@ -189,17 +228,28 @@ $propertyImages = $property['images'] ?? [];
 
 
 
-                @if(is_array($property['virtual_tours'] ?? false) && count($property['virtual_tours']) > 0)
-    <div id="nav-Virtualtour" role="tabpanel" aria-labelledby="nav-Virtualtour-tab">
-        <h2 class="tab-headings">Video tours</h2>
+            @if(is_array($property['virtual_tours'] ?? false) && count($property['virtual_tours']) > 0)
+                <div id="nav-Virtualtour" role="tabpanel" aria-labelledby="nav-Virtualtour-tab">
+                    <h2 class="tab-headings">Video tours</h2>
 
-        @foreach ($property['virtual_tours'] as $property_virtualtour)
-            <iframe width="100%" height="550" src="{{ $property_virtualtour['media_url'] ?? '' }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        @endforeach
-    </div>
-@else
-  
-@endif
+                    @php
+                        // Refine $filteredCarouselTours to include only embeddable videos using the function
+                        $filteredCarouselTours = array_filter($property['virtual_tours'], function ($tour) {
+                            return isEmbeddableVideo($tour['media_url']); // Use the isEmbeddableVideo function
+                        });
+                    @endphp
+
+                    @if(count($filteredCarouselTours) > 0)
+                        @foreach ($filteredCarouselTours as $property_virtual_tour)
+                            @php
+                                $embedCode = getVideoEmbedCode($property_virtual_tour['media_url']); // Generate embed code
+                            @endphp
+                            {{-- Display the video embed code --}}
+                            {!! $embedCode !!}
+                         @endforeach
+                    @endif
+                </div>
+            @endif
 
 
  <div class="map" id="nav-Map" role="tabpanel" aria-labelledby="nav-Map-tab">

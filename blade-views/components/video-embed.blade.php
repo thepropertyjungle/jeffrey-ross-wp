@@ -32,7 +32,7 @@
 @endphp
 
 @if($embedUrl !== 'Invalid URL')
-    <iframe loading="lazy" src="{{ $embedUrl }}" title="Video for {{ $title ?? '' }}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe loading="lazy" src="{{ $embedUrl }}" title="Video for {{ $title ?? '' }}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
 @else
     <p>Invalid video URL provided.</p>
 @endif
