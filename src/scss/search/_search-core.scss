@@ -945,25 +945,16 @@
 
 .search-hero {
     position: relative; // Ensure the pseudo-element is positioned correctly
-    background-image: url('/wp-content/uploads/2024/07/001_9383.jpg');
+    background-image: url('/wp-content/uploads/2024/12/DSC_7277.jpg');
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    height: 90vh;
     background-size: cover;
-    background-position: center;
+    background-position: top;
 
-    &:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #0a1939bf; // Black with 0.5 opacity
-        z-index: 1; // Make sure the overlay is above the background but below the content
-    }
+  
 
     @media (max-width: 767px) {
         justify-content: start !important;
