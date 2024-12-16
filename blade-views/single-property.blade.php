@@ -416,45 +416,88 @@
   
       <div class=" branch " >
                      
-              <h4 class="feature">Agent Details </h4>
+             
       
               <div class="d-flex branch-info " >
   
               
-              <div class="branch-contact" >
-  
-                <h4> {{ $property['branch']['name'] ?? '' }}</h4>
+              @php
+                        // Get the negotiator email from the property data
+                        $negotiatorEmail = $property['other']['negotiator'] ?? '';
 
-                <a href="tel:{{ $property['branch']['meta']['phone_numbers'][0] ?? '' }}">
-                    {{ $property['branch']['meta']['phone_numbers'][0] ?? '' }}
-                </a>
+                        // Initialize an empty variable to hold matched team member data
+                        $matchedTeamMember = null;
+
+                        // Query the team post type to find a match by email
+                        $teamQuery = new WP_Query([
+                        'post_type' => 'team',
+                        'posts_per_page' => -1,
+                        'meta_query' => [
+                        [
+                        'key' => 'email', // Adjust this to the exact ACF field name for the email
+                        'value' => $negotiatorEmail,
+                        'compare' => '=',
+                        ],
+                        ],
+                        ]);
+
+                        // Check if there's a match
+                        if ($teamQuery->have_posts()) {
+                        $teamQuery->the_post();
+                        $matchedTeamMember = (object) [
+                        'post_title' => get_the_title(),
+                        'email' => get_field('email'),
+                        'phone_number' => get_field('phone_number'),
+                        'featured_image_url' => get_the_post_thumbnail_url(get_the_ID(), 'medium'),
+                        'instagram' => get_field('instagram'),
+                        'post_link' => get_permalink(),
+                        ];
+                        }
+
+                        // Reset WordPress post data
+                        wp_reset_postdata();
+                        @endphp
+
+                        @if ($matchedTeamMember)
+                        <div class="branch-contact">
+                            <h4 class="feature">Agent Details </h4>
+                            <h4>{{ $matchedTeamMember->post_title }}</h4>
+                            <a href="tel:{{ $matchedTeamMember->phone_number }}">
+                                {{ $matchedTeamMember->phone_number }}
+                            </a>
+                            <a href="mailto:{{ $matchedTeamMember->email }}">
+                                {{ $matchedTeamMember->email }}
+                            </a>
+                        </div>
 
 
-                </div>
-              
-              
-              <div class="branch-image">
-                  <img class="alignnone size-medium wp-image-2541" src="{{ $property['branch']['description'] ?? '' }}" alt="" width="212" height="300">
-              </div>
+                            <div class="branch-image agent">
+                                <img class="alignnone size-medium wp-image-2541"
+                                    src="{{ $matchedTeamMember->featured_image_url }}"
+                                    alt="{{ $matchedTeamMember->post_title }}" width="212" height="300">
+                            </div>
+
+                        </div>
+
+                            <div class="d-flex buttons">
+                                @if ($matchedTeamMember->instagram)
+                                <a href="{{ $matchedTeamMember->instagram }}" class="btn first btn-primary">Follow
+                                    {{ $matchedTeamMember->post_title }} on Instagram</a>
+                                @endif
+                                <a href="mailto:{{ $matchedTeamMember->email }}" class="btn second btn-secondary">Contact
+                                    Agent</a>
+                            </div>
+                      
+                        @endif
+
   
   
+
+                    </div>
   
   
-              </div>
-      
-      
-      
-      </div>
-  
-  
-                
-                      <div class="d-flex buttons " >
-                      <a href="#" class="btn first btn-primary">Follow Ramzy on instagram</a>
-                      <a href="#" class="btn  second btn-secondary">Contact Agent</a>
-                      </div>
-  
-  
-                      </div>           
+                      </div> 
+                    </div>          
                     
   
     <!-- agent -->

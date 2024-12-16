@@ -2450,7 +2450,7 @@ blockquote:last-child {
 }
 
 .enquiry-box {
-  background-color: #c5cfd9;
+  background-color: #F6F7FA;
   margin-bottom: 3rem;
   padding: 3.7rem 2rem 3.7rem 2rem;
   border-radius: 8px;
@@ -4249,7 +4249,7 @@ h4.property-search-title {
 
 .search-hero {
   position: relative;
-  background-image: url("/wp-content/uploads/2024/12/DSC_7277.jpg");
+  background-image: url("/wp-content/uploads/2024/12/properties-search-page-image.jpg");
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
