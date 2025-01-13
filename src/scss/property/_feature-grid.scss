@@ -143,6 +143,7 @@
     position: absolute;
     bottom: 3em; 
     left: 0px;
+    min-width: -webkit-max-content;
     li {
         display: inline-block;
         font-size: 16px;

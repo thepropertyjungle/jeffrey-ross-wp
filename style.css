@@ -1230,7 +1230,7 @@ blockquote:last-child {
 
 #stamp-duty-form .form-check {
   margin-bottom: 10px !important;
-  padding-left: 1.5em !important;
+  padding-left: 2.5em !important;
 }
 
 .form-check-input[type=checkbox] {
@@ -2089,6 +2089,7 @@ blockquote:last-child {
   position: absolute;
   bottom: 3em;
   left: 0px;
+  min-width: -webkit-max-content;
 }
 .home .property__rooms li {
   display: inline-block;
@@ -2345,17 +2346,17 @@ blockquote:last-child {
   margin-top: 1em;
   margin-bottom: 1em;
 }
-@media (max-width: 1024px) {
-  .property-grey-bg .property-tabs {
-    display: none;
-  }
-}
 .property-grey-bg .property-tabs .nav-tabs {
   border: 0;
   gap: 30px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+@media (max-width: 767px) {
+  .property-grey-bg .property-tabs .nav-tabs {
+    gap: 5px;
+  }
 }
 .property-grey-bg .property-tabs .nav-tabs .nav-link {
   margin: 0;
@@ -2383,14 +2384,13 @@ blockquote:last-child {
   border: 0;
   outline: none;
 }
-@media (max-width: 991px) {
-  .property-grey-bg .property-tabs .nav-tabs .nav-link {
-    display: none; /* Hide tabs navigation */
-  }
-}
-
 #property-details {
   padding: 2.5rem 0 15rem 0;
+}
+@media (max-width: 767px) {
+  #property-details {
+    padding: 2.5rem 0 1rem 0;
+  }
 }
 #property-details .tab-content .tab-pane .tab-headings {
   font-family: var(--e-global-typography-secondary-font-family);
@@ -2766,7 +2766,8 @@ blockquote:last-child {
 }
 @media (max-width: 767px) {
   .single-tpj_properties .slick-prev {
-    display: none !important;
+    right: unset;
+    left: 10px;
   }
 }
 .single-tpj_properties .slick-next {
@@ -2794,7 +2795,7 @@ blockquote:last-child {
 }
 @media (max-width: 767px) {
   .single-tpj_properties .slick-next {
-    display: none !important;
+    right: 10px;
   }
 }
 .single-tpj_properties .tab-headings {
@@ -2883,6 +2884,29 @@ blockquote:last-child {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
+}
+
+.stamp-duty-form .form-check {
+  padding-left: 2.5rem !important;
+}
+
+@media (max-width: 767px) {
+  .stamp-duty-form .sdc-checkboxes {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .brand-primary-background {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .carousel__button.is-prev, .carousel__button.is-next {
+    padding: 5px;
+  }
 }
 
 @font-face {
