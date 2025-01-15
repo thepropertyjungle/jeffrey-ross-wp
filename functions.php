@@ -153,3 +153,9 @@ function custom_svg_icon_shortcode() {
     ';
 }
 add_shortcode('custom_svg_icon', 'custom_svg_icon_shortcode');
+
+
+
+
+
+

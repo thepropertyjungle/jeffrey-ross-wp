@@ -906,3 +906,47 @@ font-weight: 600;
     padding: 5px;
   }
 }
+
+.dl_data  > h5 > svg
+  {
+    width:30px !important;
+}
+
+
+.dl_data1,
+.dl_main,
+.col_5c {
+    text-align: center;
+}
+
+
+.dl_main {
+
+
+ h3:nth-child(2) {
+    color:white;
+    background: #cd3301;
+    padding:10px;
+    margin: 10px 0px;
+ }
+
+
+
+}
+
+
+.col_5c {
+     h3 {
+        margin-bottom:10px;
+     }
+}
+
+
+.container .col-md-3 .border{
+ min-height: 134px;
+}
+
+
+.dl_data1 h3 {
+    margin-bottom: 20px;
+}

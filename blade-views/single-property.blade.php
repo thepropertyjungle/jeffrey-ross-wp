@@ -15,6 +15,9 @@ $advert_url = $property['permalink'] ?? '';
 // Are there images for this property?
 $propertyImages = $property['images'] ?? [];
 
+$rental = $property['instruction_type'] ?? '';
+
+
 // Define embeddable URL function
 function isEmbeddableVideo($url) {
 if (strpos($url, 'youtu.be') !== false ||
@@ -655,7 +658,230 @@ return $embedCode;
 
 
 
+
+
+@php
+// Default attributes for shortcode (updated for Blade syntax)
+$zipcode = $postcode ?? $property['Address']['postcode'] ?? '';
+
+// Area codes and respective region names
+$postcodes = [
+    'CF10 1' => 'City Centre',
+    'CF10 2' => 'City Centre',
+    'CF11 6' => 'Riverside',
+    'CF11 7' => 'Grangetown',
+    'CF11 8' => 'Leckwith / Lansdowne gardens',
+    'CF11 9' => 'Pontcanna',
+    'CF14 0' => 'Lisvane',
+    'CF14 1' => 'Whitchurch',
+    'CF14 2' => 'Whitchurch',
+    'CF14 7' => 'Whitchurch',
+    'CF14 3' => 'Heath',
+    'CF14 4' => 'Heath',
+    'CF14 5' => 'Llanishen',
+    'CF14 6' => 'Rhiwbina',
+    'CF14 9' => 'Thornhill',
+    'CF23 5' => 'Penylan',
+    'CF23 6' => 'Cyncoed',
+    'CF23 7' => 'Pentwyn',
+    'CF23 8' => 'Pontprennau',
+    'CF24 1' => 'Adamsdown',
+    'CF24 2' => 'Splott, Pengam Green / Tremorfa',
+    'CF24 3' => 'Roath',
+    'CF24 4' => 'Cathays',
+    'CF3 3' => 'Rumney',
+    'CF3 4' => 'Rumney',
+    'CF3 5' => 'Old St mellons',
+    'CF5 1' => 'Canton',
+    'CF5 2' => 'Llandaff',
+    'CF5 3' => 'Fairwater',
+    'CF5 4' => 'Ely & The Drope',
+    'CF5 6' => 'St Nicholas, Wenvoe Culverhouse',
+    'CF15 9' => 'CF15 9',
+    // Add more regions here
+    'CF15 8' => 'Pontprennau',
+    'CF24 9' => 'Splott',
+    'CF11 10' => 'Cardiff Bay',
+    // Add all other region codes here as needed
+];
+
+// Determine the area code based on the postcode
+$areacode = '';
+foreach ($postcodes as $key => $val) {
+    if (strpos($zipcode, $key) === 0) {
+        $areacode = $val;
+    }
+}
+
+if ($areacode) {
+    // Define region codes
+    $regionCodes = [
+        'City Centre' => 'BAh7CEkiCGdpZAY6BkVUSSIrZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzEwMDkzP2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--7eb5f7f9baea8c68f67c3589ca11d11534ee3a1a',
+										'Riverside' => 'BAh7CEkiCGdpZAY6BkVUSSIrZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzEwMDc4P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--034c0a2251db71ec18ffb4a421807e496488a4ff',
+										'Grangetown' => 'BAh7CEkiCGdpZAY6BkVUSSIrZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzEwMDc3P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--6dc86c5351b682117732288d140c1c394a558f4c',
+										'Leckwith / Lansdowne gardens' => 'BAh7CEkiCGdpZAY6BkVUSSIrZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzEwMDc2P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--d7ab2d646da8d5ba3417e8c231bbe7f7fc5ebc38',
+										'Pontcanna' => 'BAh7CEkiCGdpZAY6BkVUSSIqZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzY0NTg_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--ebc2c6140e6e2760949b6321cbbba286390bdf11',
+										'Lisvane' => 'BAh7CEkiCGdpZAY6BkVUSSIrZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzEwMDg2P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--4a7e3251216d61c21f6a89f3c2afa1faf5557750',
+										'Whitchurch' => 'BAh7CEkiCGdpZAY6BkVUSSIrZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzEwMDg3P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--e3ff14d1611a883fa27284c7cba2768b4e6334c4',
+										'Heath' => 'BAh7CEkiCGdpZAY6BkVUSSIrZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzEwMDg4P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--fefa4001d1981db73125edbd33dc4edb5559a84f',
+										'Llanishen' => 'BAh7CEkiCGdpZAY6BkVUSSIrZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzEwMDg5P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--b5a70a8f01f11a21d70c9fab8770166af3a9757d',
+										'Rhiwbina' => 'BAh7CEkiCGdpZAY6BkVUSSIrZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzEwMDkwP2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--f8895292a09acb9d36558fed5cce01ae7ed9f392',
+										'Thornhill' => 'BAh7CEkiCGdpZAY6BkVUSSIqZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzY5OTc_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--2c3d9f2f8ca645ecfcf248cbb97f9dacd2f71c75',
+										'Penylan' => 'BAh7CEkiCGdpZAY6BkVUSSIqZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzI2MzA_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--21a7dd644c7feb1b152c3829ab7f7888cd977cce',
+										'Cyncoed' => 'BAh7CEkiCGdpZAY6BkVUSSIqZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzI2MzE_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--e8cae35b79841651afdd4c2eaebf85e919aca59e',
+										'Pentwyn' => 'BAh7CEkiCGdpZAY6BkVUSSIrZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzEwMDgzP2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--a8bf1d3b43f6fb8ff72a1fcadb168629b79551e7',
+										'Pontprennau' => 'BAh7CEkiCGdpZAY6BkVUSSIrZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzEwMDg0P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--70d436406b4598d368a1c7b428956a08cec6e3c7',
+										'Adamsdown' => 'BAh7CEkiCGdpZAY6BkVUSSIqZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzI2Mzg_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--03376aad30858f2358877d715e980769450ab384',
+										'Splott, Pengam Green / Tremorfa' => 'BAh7CEkiCGdpZAY6BkVUSSIrZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzEwMDg1P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--5868ca9c300f24066ef6fb07b198e9879094fe23',
+										'Roath' => 'BAh7CEkiCGdpZAY6BkVUSSIqZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzI2MzY_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--b9bdb6a91490aff005219672f49ef5164aecf61b',
+										'Cathays' => 'BAh7CEkiCGdpZAY6BkVUSSIqZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzI2Mzc_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--b0433c577fbb2b3c84c4bc53eed95c295e0d5b3f',
+										'Rumney' => 'BAh7CEkiCGdpZAY6BkVUSSIrZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzEwMDkxP2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--d77fb91a9b152ece9e8fea91367ce69ee1b0464f',
+										'Old St mellons' => 'BAh7CEkiCGdpZAY6BkVUSSIrZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzEwMDkyP2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--03c5cddedef0e86b27ddc6b5975567dc84baf19e',
+										'Canton' => 'BAh7CEkiCGdpZAY6BkVUSSIrZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzEwMDc5P2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--96bdc79aeeb048ff6d68cc8cbd16df98a7e857d9',
+										'Llandaff' => 'BAh7CEkiCGdpZAY6BkVUSSIqZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzcwNjQ_ZXhwaXJlc19pbgY7AFRJIgxwdXJwb3NlBjsAVEkiDGRlZmF1bHQGOwBUSSIPZXhwaXJlc19hdAY7AFQw--478b79060f62715cde944fc12ed42c1b1e22b507',
+										'Fairwater' => 'BAh7CEkiCGdpZAY6BkVUSSIrZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzEwMDgwP2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--fe21fa0b63b467d76b6689c18f05e9287fd7b207',
+										'Ely & The Drope' => 'BAh7CEkiCGdpZAY6BkVUSSIrZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzEwMDgxP2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--dbc7998f7d602df9390c9a6de76fd089374ba57d',
+										'St Nicholas, Wenvoe Culverhouse' => 'BAh7CEkiCGdpZAY6BkVUSSIrZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzEwMDgyP2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--973e8d409ad36fde1ba4a69ed45aaf0574cf3806',
+										'CF15 9' => 'BAh7CEkiCGdpZAY6BkVUSSIrZ2lkOi8vaW5mb3JtL1VzZXJBcmVhLzEwNTcwP2V4cGlyZXNfaW4GOwBUSSIMcHVycG9zZQY7AFRJIgxkZWZhdWx0BjsAVEkiD2V4cGlyZXNfYXQGOwBUMA==--d74c16269ab6fb08fcc5834a4d509095bf6a2bde'
+            
+    ];
+
+    // Get the region ID
+    $regionId = isset($regionCodes[$areacode]) ? $regionCodes[$areacode] : '';
+
+    if ($regionId) {
+        // Make the API request
+        $response = wp_remote_get('https://inform.dataloft.co.uk/api/'.$regionId.'/8qnkvr6QNdY7NETVHUfi2A/widget_stats', ['sslverify' => false]);
+
+        if (is_array($response) && !is_wp_error($response)) {
+            $data = json_decode($response['body'], true);
+            $data_twelve_months = $data['stats']['results']['area']['data']['twelve_months'];
+        }
+    }
+}
+@endphp
+
+
+
+<div class="container data pb-5">
+  <h2 class="elementor-heading-title elementor-size-default">What's the market like in this area?</h2>
+</div>
+
+<div class="container data pb-5 ">
+  <!-- 4 divs side by side with padding and 20px gap -->
+  <div class="row g-3">
+    <div class="col-md-3 col-6">
+      <div class="p-3 border bg-light">
+        <div class="dl_main">
+          <h3>Average price of a home</h3>
+          <?php if (number_format($data_twelve_months['average_price']) != 0) { ?>
+            <h3>&pound; <?php echo number_format($data_twelve_months['average_price']); ?></h3>
+          <?php } else { ?>
+            <h3 style="font-size:22px">Insufficient data</h3>
+          <?php } ?>
+          <h4><?php echo array_search($areacode, $postcodes);  ?></h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-6">
+      <div class="p-3 border bg-light">
+        <div class="col_5c">
+          <h3>How much <br><strong>have prices changed?</strong></h3>
+          <div class="row g-3">
+  <!-- 12 months block -->
+  <div class="col-md-6 col-12">
+    <?php 
+      $minusClass = '';
+      if (substr(number_format($data_twelve_months['percentage_change_in_average_price'], 1), 0, 1) === '-') {
+        $minusClass = 'minusvalue';
+      }
+    ?>
+    <div class="dl_data <?php echo $minusClass; ?>">
+      <h5>
+        <svg width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 27 27" style="enable-background:new 0 0 27 27;" xml:space="preserve">
+          <style type="text/css">
+            .widget_arrow {fill:#cd3301;}
+          </style>
+          <g transform="rotate(0)">
+            <polygon class="widget_arrow" points="1.516,10.715 1.516,14.742 10.797,5.461 10.797,27 13.664,27 13.664,5.461 22.945,14.742 22.945,10.715 12.231,0 "></polygon>
+          </g>
+        </svg>
+        <?php echo abs(number_format($data_twelve_months['percentage_change_in_average_price'], 1)); ?>%
+      </h5>
+      <h6>last <strong>12 months</strong></h6>
+    </div>
+  </div>
+
+  <!-- 5 years block -->
+  <div class="col-md-6 col-12">
+    <?php 
+      $minusClassx = '';
+      if (substr(number_format($data_fiveyears['percentage_change_in_average_price'], 1), 0, 1) === '-') {
+        $minusClassx = 'minusvalue';
+      }
+    ?>
+    <div class="dl_data <?php echo $minusClassx; ?>">
+      <h5>
+        <svg width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 27 27" style="enable-background:new 0 0 27 27;" xml:space="preserve">
+          <style type="text/css">
+            .widget_arrow {fill:#cd3301;}
+          </style> 
+          <g transform="rotate(0)">
+            <polygon class="widget_arrow" points="1.516,10.715 1.516,14.742 10.797,5.461 10.797,27 13.664,27 13.664,5.461 22.945,14.742 22.945,10.715 12.231,0 "></polygon>
+          </g>
+        </svg>
+        <?php echo abs(number_format($data_fiveyears['percentage_change_in_average_price'], 1)); ?>%
+      </h5>
+      <h6>last <strong>5 years</strong></h6>
+    </div>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-6">
+      <div class="p-3 border bg-light">
+        <div class="col_6c">
+          <div class="dl_data1">
+            <h3>What's the average<br> <strong>price per square foot?</strong></h3>
+            <h5>&pound;<?php echo number_format($data_twelve_months['average_price_psf']); ?>psf</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-6">
+      <div class="p-3 border bg-light">
+        <div class="col_6c">
+          <div class="dl_data1">
+            <h3>What's the average <br><strong>price of a new home?</strong></h3>
+            <h5><?php echo ($data_twelve_months['average_price_new_build'] != '') ? '&pound;' . number_format($data_twelve_months['average_price_new_build']) : ' -- '; ?></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
 <?php echo do_shortcode('[elementor-template id="2185"]'); ?>
+
+
+
+
+
+
 
 
 @include('debug/debug')
