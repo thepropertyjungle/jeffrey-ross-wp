@@ -577,22 +577,50 @@ return $embedCode;
 
 
 
-            <div class="d-flex buttons p-3">
+            <div class="d-flex buttons pb-3">
 
-
-                <?php echo do_shortcode('[stamp_duty_calculator]'); ?>
-
-
-
-
-
-
+            <div class="check">
+                <label>
+                    <input type="radio" name="propertyType" id="ltteRadio" checked> LTTE
+                </label>
+                <label>
+                    <input type="radio" name="propertyType" id="stampRadio"> Stamp Duty
+                </label>
+            </div>
+            
 
             </div>
 
 
+
+            <div class="ltte calc" id="ltteContent">
+                <?php echo do_shortcode('[stamp_duty_calculator region="wales"]'); ?>
+            </div>
+
+
+
+            <div class="stamp calc" id="stampContent">
+                            <?php echo do_shortcode('[stamp_duty_calculator]'); ?>
+            </div>
+
+
+
+
         </div>
 
+    <script>    $(document).ready(function () {
+        // Toggle visibility based on the selected radio button
+        $('input[name="propertyType"]').on('change', function () {
+            if ($('#ltteRadio').is(':checked')) {
+                $('#ltteContent').show();
+                $('#stampContent').hide();
+            } else if ($('#stampRadio').is(':checked')) {
+                $('#ltteContent').hide();
+                $('#stampContent').show();
+            }
+        });
+    });
+</script>
 
         <!-- stamp -->
 

@@ -2938,6 +2938,10 @@ blockquote:last-child {
   margin-bottom: 20px;
 }
 
+#stampContent {
+  display: none;
+}
+
 @font-face {
   font-family: "Azo";
   src: url("../../fonts/AzoSans-Regular.woff2") format("woff2"), url("../../fonts/AzoSans-Regular.woff") format("woff");
