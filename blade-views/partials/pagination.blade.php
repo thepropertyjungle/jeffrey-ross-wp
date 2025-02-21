@@ -23,9 +23,12 @@
       
 
     <div class="d-flex flex-row justify-content-center align-items-center page-numbers">
-    @if(is_array($paginate['pages'] ?? ''))
+    @if(!empty($paginate['pages']) && is_array($paginate['pages']))
         @php
-            $totalPages = count($paginate['pages']);
+            // Retrieve the total number of pages directly from pagination data
+            $totalPages = $paginate['totalPages'] ?? (isset($paginate['last_page']) ? $paginate['last_page'] : max(array_column($paginate['pages'], 'pageNo')));
+
+            // Find the current active page
             $currentPage = collect($paginate['pages'])->firstWhere('active_class', 'active');
         @endphp
         @if($currentPage)

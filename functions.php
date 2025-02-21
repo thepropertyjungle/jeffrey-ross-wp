@@ -159,3 +159,13 @@ add_shortcode('custom_svg_icon', 'custom_svg_icon_shortcode');
 
 
 
+function get_team_member_phone() {
+    if (get_post_type() === 'team') {
+        $phone_number = get_field('phone_number'); // Get the ACF field value
+        if ($phone_number) {
+            return esc_html($phone_number);
+        }
+    }
+    return ''; // Return empty if not on a 'team' post type
+}
+add_shortcode('team_phone', 'get_team_member_phone');
