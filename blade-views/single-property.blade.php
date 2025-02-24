@@ -429,7 +429,7 @@ return $embedCode;
                 <div class="d-flex buttons">
                     <a data-bs-toggle="modal" data-bs-target="#propertyViewing" class="btn first btn-primary">Arrange a
                         viewing</a>
-                    <a href="#" class="btn second btn-secondary">Make an offer</a>
+                    <a href="tel:02920499680" class="btn second btn-secondary">Make an offer</a>
 
 
                     <!-- Modal Viewing Form -->
